@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
-import {colors} from "../../../shared/global-styles/colors";
+import {colors} from "../../shared/global-styles/colors";
 
 
 const HeaderTitleStl = styled.div`
@@ -35,6 +35,6 @@ export const HeaderTitle = ({primary, secondary}) => {
         Название<br/>заведения
       </HeaderTitleStl>
     :
-    null
+    undefined
   )
 }

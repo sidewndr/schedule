@@ -1,10 +1,10 @@
 import React from "react";
 
-import {GlobalStyles} from "../../../../shared/global-styles/global-styles"
+import {GlobalStyles} from "../../../shared/global-styles/global-styles"
 import {HeaderTitle} from "../header-title";
 
 export default {
-  title: 'Header/Atoms/HeaderTitle',
+  title: 'Components/Atoms/HeaderTitle',
   component: HeaderTitle,
 }
 

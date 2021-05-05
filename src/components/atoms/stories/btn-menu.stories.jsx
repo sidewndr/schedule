@@ -1,10 +1,10 @@
 import React from "react";
 
-import {GlobalStyles} from "../../../../shared/global-styles/global-styles"
+import {GlobalStyles} from "../../../shared/global-styles/global-styles"
 import {BtnMenu} from "../btn-menu";
 
 export default {
-  title: 'Header/Atoms/BtnMenu',
+  title: 'Components/Atoms/BtnMenu',
   component: BtnMenu,
 }
 

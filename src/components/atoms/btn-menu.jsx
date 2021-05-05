@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import BtnMenuOpen from '../../../attachments/img/btn-menu-open.svg'
-import BtnMenuClose from '../../../attachments/img/btn-menu-close.svg'
+import BtnMenuOpen from '../../attachments/img/btn-menu-open.svg'
+import BtnMenuClose from '../../attachments/img/btn-menu-close.svg'
 
 const BtnMenuStl = styled.div`
   display: flex;
@@ -33,6 +33,6 @@ export const BtnMenu = ({open, close}) => {
         <ImgStl src={BtnMenuClose} />
       </BtnMenuStl>
     :
-    null
+    undefined
   )
 }
