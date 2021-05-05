@@ -15,6 +15,12 @@ const Template = (args) => (
   </>
 )
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Mobile = Template.bind({})
+Mobile.args = {
+  mobile: true
+}
+
+export const Desktop = Template.bind({})
+Desktop.args = {
+  desktop: true
 }
