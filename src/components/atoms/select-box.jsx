@@ -22,7 +22,10 @@ const SelectBoxStl = styled.div`
 `
 
 const SelectStl = styled.select`
-  display: block;
+  display: flex;
+  align-items: center;
+  
+  
   position: relative;
   z-index: 1;
   width: 100%;
@@ -30,11 +33,7 @@ const SelectStl = styled.select`
   background-color: transparent;
   appearance: none;
   outline: none;
-  
   border: ${({isActive}) => isActive ? colors.primary : 'transparent'} 1px solid;
-  
-  //border: transparent 1px solid;
-  
   border-radius: 5px;
   padding-left: 15px;
   font-family: 'Inter', sans-serif;
@@ -89,32 +88,9 @@ export const SelectBox = ({mobile, desktop}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [title, setTitle] = useState('TITLE')
 
-  // const onClose = () => {
-  //   if (isOpen) {
-  //     setIsOpen(false)
-  //   }
-  // }
-
   const onToggle = () =>  {
-
-    // if (!isOpen) {
-    //   document.body.addEventListener('click', onClose)
-    //   console.log('event add')
-    // } else {
-    //   document.body.removeEventListener('click', onClose)
-    //   console.log('event delete')
-    // }
-
     setIsOpen(!isOpen)
   }
-
-  // useEffect(() => {
-  //   document.body.addEventListener('click', setIsOpen(false));
-  //
-  //   return function cleanup() {
-  //     window.removeEventListener('click', onToggle);
-  //   }
-  // },[]);
 
 
   return (
