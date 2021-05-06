@@ -1,28 +1,33 @@
 import React, {useState} from 'react'
 import styled, {css} from 'styled-components'
+import {colors} from "../../shared/global-styles/colors";
 
 import BtnSelectImg from '../../attachments/img/btn-select.svg'
-import {colors} from "../../shared/global-styles/colors";
+import {animations} from "../../shared/animations/animations";
 
 
 const DropdownStl = styled.div`
   display: inline-block;
   position: relative;
 
-  &::after{
-    content: url(${BtnSelectImg});
-    display: block;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 15px;
-  }
+  ${({mobile}) => mobile && css`
+    &::after{
+      content: url(${BtnSelectImg});
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 15px;
+    }
+  `}
 `
 
 const SelectStl = styled.select`
+  width: 300px;
+  height: 30px;
   display: block;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   appearance: none;
   outline: none;
   padding: 0 0 0 15px;
@@ -38,10 +43,26 @@ const SelectStl = styled.select`
   &:focus, &:hover{
     border-color: ${colors.primary};
   }
-
-  width: 300px;
-  height: 30px;
 `
+
+
+
+//TODO: Анимашка
+const SelectIconStl = styled.img`
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 14px;
+
+  &:focus{
+    background-color: black;
+    //animation: ${animations.animName} 1s;
+  }
+`
+
+
 
 const OptionStl = styled.option`
   ${({defaultTitle}) => defaultTitle && css`
@@ -65,6 +86,7 @@ const OptionStl = styled.option`
   align-items: center;
   height: 100%;
   cursor: pointer;
+  user-select: none;
 `
 
 const DropdownMenuStl = styled.div`
@@ -73,13 +95,10 @@ const DropdownMenuStl = styled.div`
   left: -1px;
   top: 35px;
   width: calc(100% + 2px);
+  height: 300px;
   overflow: auto;
   border: ${colors.primary} 1px solid;
   border-radius: 5px;
-
-
-
-  height: 300px;
 `
 
 
@@ -107,14 +126,18 @@ export const Dropdown = ({mobile, desktop}) => {
     {id: 17, label: 'opt5'},
   ]
 
+  const [title, setTitle] = useState('Title')
   const [isClose, setIsClose] = useState(true)
   const [clickCounter, setClickCounter] = useState(0)
-  // const closeOnClick = () => {
-  // }
+
+  const closeOnClick = () => {
+    setIsClose(!isClose)
+    setClickCounter(1)
+  }
 
   return (
     mobile ?
-      <DropdownStl>
+      <DropdownStl mobile>
         <SelectStl tabIndex={0} >
           <OptionStl defaultTitle selected >
             {'TITLE'}
@@ -144,21 +167,26 @@ export const Dropdown = ({mobile, desktop}) => {
 
           onBlur={() => {
             setIsClose(true)
+            setClickCounter(0)
           }}
         >
           <OptionStl as={'div'}>
-            {'TITLE'}
+            {title}
           </OptionStl>
-
-
-
-
+          <SelectIconStl src={BtnSelectImg} tabIndex={0} />
           {
             (!isClose)
               ? <DropdownMenuStl>
                   {
                     options.map((item) => (
-                      <OptionStl as={'div'} item key={item.id}>
+                      <OptionStl
+                        item
+                        as={'div'}
+                        key={item.id}
+                        onClick={() => (
+                          setTitle(item.label)
+                        )}
+                      >
                         {item.label}
                       </OptionStl>
                     ))
@@ -166,11 +194,6 @@ export const Dropdown = ({mobile, desktop}) => {
                 </DropdownMenuStl>
               : null
           }
-
-
-
-
-
         </SelectStl>
       </DropdownStl>
     :
