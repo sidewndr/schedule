@@ -2,14 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import {GlobalStyles} from "./shared/global-styles/global-styles";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
+import {Dropdown} from "./components/atoms/dropdown";
 
+
+const Routes = () => {
+  <Route exact path={'/'} >
+    <Dropdown />
+  </Route>
+}
 
 const app = (
   <>
     <GlobalStyles />
     <BrowserRouter>
-
+      {Routes}
     </BrowserRouter>
   </>
 )

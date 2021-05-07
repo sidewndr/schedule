@@ -45,9 +45,6 @@ const SelectStl = styled.select`
   }
 `
 
-
-
-//TODO: Анимашка
 const SelectIconStl = styled.img`
   display: block;
   position: absolute;
@@ -55,14 +52,7 @@ const SelectIconStl = styled.img`
   top: 50%;
   transform: translateY(-50%);
   right: 14px;
-
-  &:focus{
-    background-color: black;
-    //animation: ${animations.animName} 1s;
-  }
 `
-
-
 
 const OptionStl = styled.option`
   ${({defaultTitle}) => defaultTitle && css`
@@ -98,14 +88,13 @@ const DropdownMenuStl = styled.div`
   height: 300px;
   overflow: auto;
   border: ${colors.primary} 1px solid;
-  border-radius: 5px;
 `
 
 
 export const Dropdown = ({mobile, desktop}) => {
 
   const options = [
-    {id: 0, label: 'opt0'},
+    {id: 0, label: 'pt0'},
     {id: 1, label: 'opt1'},
     {id: 2, label: 'opt2'},
     {id: 3, label: 'opt3'},
@@ -173,7 +162,7 @@ export const Dropdown = ({mobile, desktop}) => {
           <OptionStl as={'div'}>
             {title}
           </OptionStl>
-          <SelectIconStl src={BtnSelectImg} tabIndex={0} />
+          <SelectIconStl src={BtnSelectImg} />
           {
             (!isClose)
               ? <DropdownMenuStl>
