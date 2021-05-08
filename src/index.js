@@ -4,20 +4,23 @@ import reportWebVitals from './reportWebVitals';
 import {GlobalStyles} from "./shared/global-styles/global-styles";
 import {BrowserRouter, Route} from "react-router-dom";
 import {Dropdown} from "./components/atoms/dropdown";
+import {Input} from "./components/atoms/input";
 
 
-const Routes = () => {
-  <Route exact path={'/'} >
-    <Dropdown />
-  </Route>
-}
+// const Routes = () => {
+//   <Route exact path={'/'} >
+//     <Dropdown />
+//   </Route>
+// }
 
 const app = (
   <>
     <GlobalStyles />
     <BrowserRouter>
-      {Routes}
+      {/*{Routes}*/}
     </BrowserRouter>
+
+    <Input />
   </>
 )
 

@@ -3,7 +3,6 @@ import styled, {css} from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 
 import BtnSelectImg from '../../attachments/img/btn-select.svg'
-import {animations} from "../../shared/animations/animations";
 
 
 const DropdownStl = styled.div`

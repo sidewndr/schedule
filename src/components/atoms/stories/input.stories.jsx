@@ -1,7 +1,7 @@
 import React from "react";
 
 import {GlobalStyles} from "../../../shared/global-styles/global-styles";
-import {Input} from "./input";
+import {Input} from "../input";
 
 export default {
   title: 'TITLE/TITLE/Input',
