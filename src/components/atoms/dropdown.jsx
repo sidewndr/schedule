@@ -10,6 +10,8 @@ const DropdownStl = styled.div`
   position: relative;
 
   ${({mobile}) => mobile && css`
+    width: 240px;
+    
     &::after{
       content: url(${BtnSelectImg});
       display: block;
@@ -22,7 +24,7 @@ const DropdownStl = styled.div`
 `
 
 const SelectStl = styled.select`
-  width: 300px;
+  width: ${({mobile}) => mobile ? '240px' : '300px'};
   height: 30px;
   display: block;
   position: relative;
@@ -84,7 +86,8 @@ const DropdownMenuStl = styled.div`
   left: -1px;
   top: 35px;
   width: calc(100% + 2px);
-  height: 300px;
+  max-height: 300px;
+  height: auto;
   overflow: auto;
   border: ${colors.primary} 1px solid;
 `
@@ -126,7 +129,7 @@ export const Dropdown = ({mobile, desktop}) => {
   return (
     mobile ?
       <DropdownStl mobile>
-        <SelectStl tabIndex={0} >
+        <SelectStl mobile tabIndex={0} >
           <OptionStl defaultTitle selected >
             {'TITLE'}
           </OptionStl>
