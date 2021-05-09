@@ -17,10 +17,10 @@ const Template = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  primary: true
+  main: true
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
-  secondary: true
+  navbar: true
 }
