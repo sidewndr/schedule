@@ -10,16 +10,25 @@ const HeaderStl = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  border-bottom: ${colors.primary} 1px solid;
+  border-bottom: ${({main}) => main ? colors.primary : colors.secondary} 1px solid;
   padding: 0 20px;
 `
 
 
-export const Header = ({}) => {
+export const Header = ({main, navbar}) => {
   return (
-    <HeaderStl>
-      <BtnMenu open />
-      <HeaderTitle main />
-    </HeaderStl>
+      main ?
+        <HeaderStl main>
+          <BtnMenu open />
+          <HeaderTitle main />
+        </HeaderStl>
+      :
+      navbar ?
+        <HeaderStl>
+          <HeaderTitle navbar />
+          <BtnMenu close />
+        </HeaderStl>
+      :
+        undefined
   )
 }

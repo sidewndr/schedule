@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {Header} from "../molecules/header";
 import {Footer} from "../molecules/footer";
-import {Dropdown} from "../atoms/dropdown";
+import {Dropdown, DropdownStl} from "../atoms/dropdown";
 
 
 const HomeStl = styled.div`
@@ -11,30 +11,41 @@ const HomeStl = styled.div`
   min-height: 100vh;
 `
 
-const HeaderContainerStl = styled.div``
+const HeaderContainerStl = styled.div`
+  margin-bottom: 70px
+`
 
 
 const MainContainerStl = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-bottom: auto;
+  
+  ${DropdownStl}:nth-child(1){
+    margin-bottom: 25px;
+  }
+
+  ${DropdownStl}:nth-child(2){
+    margin-bottom: 70px;
+  }
 `
 
 const FooterContainerStl = styled.div``
 
 
 
-export const Home = ({}) => {
+export const Home = () => {
   return (
     <HomeStl>
       <HeaderContainerStl>
-        <Header />
+        <Header main />
       </HeaderContainerStl>
 
       <MainContainerStl>
-        <Dropdown mobile />
-        <Dropdown mobile />
-        <Dropdown mobile />
+        <Dropdown mobile defaultValue={'Курс'} />
+        <Dropdown mobile defaultValue={'Группа'} />
+        <Dropdown mobile defaultValue={'Преподаватель'} />
       </MainContainerStl>
 
       <FooterContainerStl>

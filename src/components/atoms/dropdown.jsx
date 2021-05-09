@@ -5,12 +5,12 @@ import {colors} from "../../shared/global-styles/colors";
 import BtnSelectImg from '../../attachments/img/btn-select.svg'
 
 
-const DropdownStl = styled.div`
+export const DropdownStl = styled.div`
   display: inline-block;
   position: relative;
 
   ${({mobile}) => mobile && css`
-    width: 240px;
+    width: 260px;
     
     &::after{
       content: url(${BtnSelectImg});
@@ -24,11 +24,10 @@ const DropdownStl = styled.div`
 `
 
 const SelectStl = styled.select`
-  width: ${({mobile}) => mobile ? '240px' : '300px'};
+  width: ${({mobile}) => mobile ? '100%' : '300px'};
   height: 30px;
   display: block;
   position: relative;
-  z-index: 2;
   appearance: none;
   outline: none;
   padding: 0 0 0 15px;
@@ -61,6 +60,8 @@ const OptionStl = styled.option`
   `}
   
   ${({item}) => item && css`
+    position: relative;
+    z-index: 3;
     /* Height like on SelectStl */
     min-height: 30px;
     height: auto !important;
@@ -72,7 +73,9 @@ const OptionStl = styled.option`
       color: ${colors.secondary};
     }
   `}
-
+  
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   height: 100%;
@@ -82,18 +85,19 @@ const OptionStl = styled.option`
 
 const DropdownMenuStl = styled.div`
   position: absolute;
-  z-index: 1;
-  left: -1px;
+  z-index: 2;
+  left: 0;
   top: 35px;
-  width: calc(100% + 2px);
+  width: 100%;
   max-height: 300px;
   height: auto;
   overflow: auto;
+  background-color: ${colors.secondary};
   border: ${colors.primary} 1px solid;
 `
 
 
-export const Dropdown = ({mobile, desktop}) => {
+export const Dropdown = ({mobile, desktop, defaultValue = 'TITLE'}) => {
 
   const options = [
     {id: 0, label: 'pt0'},
@@ -117,7 +121,7 @@ export const Dropdown = ({mobile, desktop}) => {
     {id: 17, label: 'opt5'},
   ]
 
-  const [title, setTitle] = useState('Title')
+  const [title, setTitle] = useState(defaultValue)
   const [isClose, setIsClose] = useState(true)
   const [clickCounter, setClickCounter] = useState(0)
 
@@ -131,7 +135,7 @@ export const Dropdown = ({mobile, desktop}) => {
       <DropdownStl mobile>
         <SelectStl mobile tabIndex={0} >
           <OptionStl defaultTitle selected >
-            {'TITLE'}
+            {defaultValue}
           </OptionStl>
           {
             options.map((item) => (
@@ -174,9 +178,7 @@ export const Dropdown = ({mobile, desktop}) => {
                         item
                         as={'div'}
                         key={item.id}
-                        onClick={() => (
-                          setTitle(item.label)
-                        )}
+                        onClick={() => setTitle(item.label)}
                       >
                         {item.label}
                       </OptionStl>
@@ -188,6 +190,6 @@ export const Dropdown = ({mobile, desktop}) => {
         </SelectStl>
       </DropdownStl>
     :
-    undefined
+      undefined
   )
 }

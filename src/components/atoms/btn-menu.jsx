@@ -33,6 +33,6 @@ export const BtnMenu = ({open, close}) => {
         <ImgStl src={BtnMenuClose} />
       </BtnMenuStl>
     :
-    undefined
+      undefined
   )
 }

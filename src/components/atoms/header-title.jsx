@@ -7,10 +7,10 @@ const HeaderTitleStl = styled.div`
   display: inline-block;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  text-transform: uppercase;
 
   ${props => props.main && css`
     font-size: 24px;
+    text-transform: uppercase;
     text-align: right;
     color: ${colors.primary};
   `}
@@ -32,9 +32,9 @@ export const HeaderTitle = ({main, navbar}) => {
     :
     navbar ?
       <HeaderTitleStl navbar>
-        Название<br/>заведения
+        КЕКТиС
       </HeaderTitleStl>
     :
-    undefined
+      undefined
   )
 }
