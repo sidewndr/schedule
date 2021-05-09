@@ -1,7 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Route} from "react-router-dom";
-import {Dropdown} from "../../components/atoms/dropdown";
 import {Home} from "../../components/pages/home";
+import {Navbar} from "../../components/organisms/navbar";
 
 
 export const Routes = () => {
@@ -11,8 +11,8 @@ export const Routes = () => {
         <Home />
       </Route>
 
-      <Route exact path={'/mob'}>
-        <Dropdown mobile />
+      <Route exact path={'/nav'}>
+        <Navbar />
       </Route>
     </BrowserRouter>
   )
