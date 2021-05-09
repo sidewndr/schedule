@@ -4,13 +4,15 @@ import {NavLink} from "react-router-dom";
 
 const LinkStl = styled(NavLink)`
   display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
 `
 
 
-export const Link = ({...props}) => {
+export const Link = ({to, ...props}) => {
 
   return (
-    <LinkStl>
+    <LinkStl to={to}>
       {props.children}
     </LinkStl>
   )
