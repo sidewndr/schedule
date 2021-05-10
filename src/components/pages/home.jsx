@@ -43,9 +43,9 @@ export const Home = () => {
       </HeaderContainerStl>
 
       <MainContainerStl>
-        <Dropdown mobile defaultValue={'Курс'} />
-        <Dropdown mobile defaultValue={'Группа'} />
-        <Dropdown mobile defaultValue={'Преподаватель'} />
+        <Dropdown mobile defaultValue={'КУРС'} />
+        <Dropdown mobile defaultValue={'ГРУППА'} />
+        <Dropdown mobile defaultValue={'ПРЕПОДАВАТЕЛЬ'} />
       </MainContainerStl>
 
       <FooterContainerStl>

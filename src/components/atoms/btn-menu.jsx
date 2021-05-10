@@ -10,6 +10,7 @@ const BtnMenuStl = styled.div`
   align-items: center;
   width: 35px;
   height: 28px;
+  user-select: none;
   
   &:hover{
     cursor: pointer;
@@ -21,15 +22,15 @@ const ImgStl = styled.img`
 `
 
 
-export const BtnMenu = ({open, close}) => {
+export const BtnMenu = ({open, close, onClick}) => {
   return (
     open ?
-      <BtnMenuStl>
+      <BtnMenuStl onClick={onClick}>
         <ImgStl src={BtnMenuOpen} />
       </BtnMenuStl>
     :
     close ?
-      <BtnMenuStl>
+      <BtnMenuStl onClick={onClick}>
         <ImgStl src={BtnMenuClose} />
       </BtnMenuStl>
     :

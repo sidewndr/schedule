@@ -16,6 +16,7 @@ export const DropdownStl = styled.div`
       content: url(${BtnSelectImg});
       display: block;
       position: absolute;
+      z-index: -1;
       top: 50%;
       transform: translateY(-50%);
       right: 15px;

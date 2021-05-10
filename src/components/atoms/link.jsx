@@ -3,16 +3,16 @@ import styled from 'styled-components'
 import {NavLink} from "react-router-dom";
 
 const LinkStl = styled(NavLink)`
-  display: inline-block;
+  display: block;
   text-decoration: none;
   cursor: pointer;
 `
 
 
-export const Link = ({to, ...props}) => {
+export const Link = ({to, onClick, ...props}) => {
 
   return (
-    <LinkStl to={to}>
+    <LinkStl to={to} onClick={onClick}>
       {props.children}
     </LinkStl>
   )
