@@ -11,7 +11,11 @@ export const Input = () => {
   const [str, setStr] = useState('')
 
   const regExp = (tel) => (
-    tel.replace(/^[+]7/, '8').replace(/^[+]/, '8').replace(/^[0-9]/, '8').replace(/\D/g, '')
+    tel
+      .replace(/^[+]7/, '8')
+      .replace(/^[+]/, '8')
+      .replace(/^[0-9]/, '8')
+      .replace(/\D/g, '')
   )
 
   useEffect(() => {

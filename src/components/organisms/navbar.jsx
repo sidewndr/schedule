@@ -59,7 +59,7 @@ export const Navbar = ({onClick}) => {
             <NavbarItem text={'Главная'} />
           </Link>
 
-          <Link to={'/qwe'} onClick={onClick}>
+          <Link to={'/test'} onClick={onClick}>
             <NavbarItem text={'???'} />
           </Link>
 

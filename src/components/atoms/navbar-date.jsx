@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
+import {Date} from "../../API/date";
 
 
 const NavbarDateStl = styled.div`
@@ -22,37 +23,14 @@ const DateStl = styled.div``
 
 export const NavbarDate = () => {
 
-  const date = new Date()
-
-  const getDate = () => (
-    date.getDate() < 10
-      ? '0' + date.getDate()
-      : date.getDate()
-  )
-
-  const getMonth = () => (
-    date.getMonth() < 10
-      ? '0' + (date.getMonth() + 1)
-      : date.getMonth() + 1
-  )
-
-  const getYear = () => (
-    date.getFullYear()
-  )
-
-  const getDay = () => {
-    const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
-    return days[date.getDay()]
-  }
-
   return (
     <NavbarDateStl>
       <DayStl>
-        {getDay()}
+        {/*{Date.getDate()}*/}
       </DayStl>
-
+//TODO: Тута
       <DateStl>
-        {`${getDate()}.${getMonth()}.${getYear()}`}
+        {/*{`${Date.getDate}.${Date.getMonth}.${Date.getYear}`}*/}
       </DateStl>
     </NavbarDateStl>
   )
