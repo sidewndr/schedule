@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import {GlobalStyles} from "./shared/global-styles/global-styles";
-import {Routes} from "./shared/routes/routes";
+import {Routes} from "./api/routes/routes";
 
 
 const app = (

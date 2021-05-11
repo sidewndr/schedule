@@ -25,7 +25,7 @@ const MainContainerStl = styled.div`
 const FooterContainerStl = styled.div``
 
 
-export const Schedule = ({}) => {
+export const Schedule = () => {
   return (
     <ScheduleStl>
       <HeaderContainerStl>
