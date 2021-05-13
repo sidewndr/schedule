@@ -12,7 +12,6 @@ const ScheduleLessonStl = styled.div`
 const ColumnStl = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: ${({end}) => end ? `${colors.primary} 0.5px solid` : null};
 
 
   ${({left}) => left && css`
@@ -23,6 +22,11 @@ const ColumnStl = styled.div`
   ${({center}) => center && css`
     flex: 1 1 187px;
     margin-right: 20px;
+    
+    ${({end}) => end && css`
+      margin-right: 0;
+      border-bottom: ${colors.tertiary} 0.5px solid;
+    `}
   `}
 
   ${({right}) => right && css`
@@ -32,6 +36,12 @@ const ColumnStl = styled.div`
 
 const RowStl = styled.div`
   display: flex;
+  
+  margin-bottom: 3px;
+  
+  ${({end}) => end && css`
+    margin-bottom: 0;
+  `}
 `
 
 const SerialNumberStl = styled.div`
@@ -55,8 +65,26 @@ const LessonNameStl = styled.div`
   color: ${colors.primary};
 `
 
+const ClassroomNumberStl = styled.div`
+  font-weight: 500;
+  font-size: 14px;
+  text-align: right;
+  color: ${colors.primary};
+`
 
-export const ScheduleLesson = ({serialNumber, lessonName, ...lessonTime}) => {
+const TeacherStl = styled.div`
+  font-weight: 300;
+  font-size: 10px;
+  text-align: left;
+  color: ${colors.tertiary};
+`
+
+
+export const ScheduleLesson = ({serialNumber = 1,
+                                 lessonName = 'Оченб длинное название предмета аж в три строки вау пиздец',
+                                 classroomNumber = 321,
+                                 teacherName = 'Прыжков Е. Е.',
+                                 ...lessonTime}) => {
 
   return (
     <ScheduleLessonStl>
@@ -73,21 +101,34 @@ export const ScheduleLesson = ({serialNumber, lessonName, ...lessonTime}) => {
       <RowStl>
         <ColumnStl left>
           <SerialNumberStl>
-            {serialNumber = 1}.
+            {serialNumber}.
           </SerialNumberStl>
         </ColumnStl>
         <ColumnStl center>
           <LessonNameStl>
-            {lessonName = ''}
+            {lessonName}
           </LessonNameStl>
         </ColumnStl>
-        <ColumnStl right></ColumnStl>
+        <ColumnStl right>
+          <ClassroomNumberStl>
+            {classroomNumber}
+          </ClassroomNumberStl>
+        </ColumnStl>
       </RowStl>
 
       <RowStl>
-        <ColumnStl left></ColumnStl>
-        <ColumnStl center></ColumnStl>
-        <ColumnStl right></ColumnStl>
+        <ColumnStl left />
+        <ColumnStl center>
+          <TeacherStl>
+            {teacherName}
+          </TeacherStl>
+        </ColumnStl>
+        <ColumnStl right />
+      </RowStl>
+
+      <RowStl end>
+        <ColumnStl left />
+        <ColumnStl center end />
       </RowStl>
     </ScheduleLessonStl>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {Footer} from "../molecules/footer";
 import {Header} from "../molecules/header";
+import {ScheduleInfo} from "../atoms/schedule-info";
 
 
 const ScheduleStl = styled.div`
@@ -11,7 +12,7 @@ const ScheduleStl = styled.div`
 `
 
 const HeaderContainerStl = styled.div`
-  margin-bottom: 70px
+  margin-bottom: 20px
 `
 
 
@@ -33,7 +34,7 @@ export const Schedule = () => {
       </HeaderContainerStl>
 
       <MainContainerStl>
-
+        <ScheduleInfo />
       </MainContainerStl>
 
       <FooterContainerStl>

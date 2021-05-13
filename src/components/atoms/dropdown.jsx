@@ -8,6 +8,10 @@ import BtnSelectImg from '../../attachments/img/btn-select.svg'
 export const DropdownStl = styled.div`
   display: inline-block;
   position: relative;
+  
+  ${({isHidden}) => isHidden && css`
+    visibility: hidden;
+  `}
 
   ${({mobile}) => mobile && css`
     width: 260px;
@@ -98,29 +102,7 @@ const DropdownMenuStl = styled.div`
 `
 
 
-export const Dropdown = ({mobile, desktop, defaultValue = 'TITLE'}) => {
-
-  const options = [
-    {id: 0, label: 'pt0'},
-    {id: 1, label: 'opt1'},
-    {id: 2, label: 'opt2'},
-    {id: 3, label: 'opt3'},
-    {id: 4, label: 'opt4'},
-    {id: 5, label: 'opt5'},
-
-    {id: 6, label: 'opt5'},
-    {id: 7, label: 'opt5'},
-    {id: 8, label: 'opt5'},
-    {id: 9, label: 'opt5'},
-    {id: 10, label: 'opt5'},
-    {id: 11, label: 'opt5'},
-    {id: 12, label: 'opt5'},
-    {id: 13, label: 'opt5'},
-    {id: 14, label: 'opt5'},
-    {id: 15, label: 'opt5'},
-    {id: 16, label: 'opt5'},
-    {id: 17, label: 'opt5'},
-  ]
+export const Dropdown = ({mobile, desktop, defaultValue, data = [], onChangeValue, isHidden}) => {
 
   const [title, setTitle] = useState(defaultValue)
   const [isClose, setIsClose] = useState(true)
@@ -133,15 +115,19 @@ export const Dropdown = ({mobile, desktop, defaultValue = 'TITLE'}) => {
 
   return (
     mobile ?
-      <DropdownStl mobile>
-        <SelectStl mobile tabIndex={0} >
+      <DropdownStl mobile isHidden={isHidden}>
+        <SelectStl
+          mobile
+          tabIndex={0}
+          onChange={onChangeValue}
+        >
           <OptionStl defaultTitle selected >
             {defaultValue}
           </OptionStl>
           {
-            options.map((item) => (
+            data.map((item) => (
               <OptionStl key={item.id}>
-                {item.label}
+                {item.item}
               </OptionStl>
             ))
           }
@@ -174,14 +160,14 @@ export const Dropdown = ({mobile, desktop, defaultValue = 'TITLE'}) => {
             (!isClose)
               ? <DropdownMenuStl>
                   {
-                    options.map((item) => (
+                    data.map((item) => (
                       <OptionStl
                         item
                         as={'div'}
                         key={item.id}
-                        onClick={() => setTitle(item.label)}
+                        onClick={() => setTitle(item.item)}
                       >
-                        {item.label}
+                        {item.item}
                       </OptionStl>
                     ))
                   }

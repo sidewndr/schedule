@@ -11,7 +11,7 @@ export const Routes = () => {
         <Home />
       </Route>
 
-      <Route exact path={'/test'}>
+      <Route exact path={'/schedule'}>
         <Schedule />
       </Route>
     </BrowserRouter>
