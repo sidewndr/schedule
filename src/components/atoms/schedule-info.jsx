@@ -38,13 +38,13 @@ export const ScheduleInfo = () => {
     .replace(/[+]/g, ' ')
     .split('&');
 
-  const getCourseFromUrl = data[0].replace('course=', '')
-  const getGroupFromUrl = data[1].replace('group=', '')
+  const getCourseFromUrl = decodeURI(data[0].replace('course=', ''))
+  const getGroupFromUrl = decodeURI(data[1].replace('group=', ''))
 
   return (
     <ScheduleInfoStl>
       <CourseStl>
-        {getCourseFromUrl} КУРС
+        {getCourseFromUrl} курс
       </CourseStl>
 
       <GroupStl>

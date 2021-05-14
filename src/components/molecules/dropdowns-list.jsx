@@ -29,8 +29,9 @@ export const DropdownsList = () => {
 
   useEffect(() => {
     if (group !== '') {
-      const setUrlCourse = course.replace(/ /g, '+');
-      const setUrlGroup = group.replace(/ /g, '+');
+      const setUrlCourse = encodeURI(course.replace(/ /g, '+'))
+      const setUrlGroup = encodeURI(group.replace(/ /g, '+'))
+
       history.push(`/schedule?course=${setUrlCourse}&group=${setUrlGroup}`)
     }
   }, [course, group, history])
