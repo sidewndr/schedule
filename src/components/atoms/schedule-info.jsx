@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 import {useLocation} from 'react-router-dom'
+import {media} from "../../shared/media/media";
 
 
 const ScheduleInfoStl = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 280px;
+  width: 100%;
   height: 30px;
   padding: 0 15px;
   border-radius: 5px;
@@ -17,6 +18,14 @@ const ScheduleInfoStl = styled.div`
   font-weight: 500;
   font-size: 18px;
   color: ${colors.secondary};
+  
+  @media(${media.isTablet}) {
+    padding: 0 15%;
+  }
+
+  @media(${media.isDesktop}) {
+    padding: 0 15%;
+  }
 `
 
 const CourseStl = styled.div`

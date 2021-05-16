@@ -4,6 +4,7 @@ import {colors} from "../../shared/global-styles/colors";
 import {BtnMenu} from "../atoms/btn-menu";
 import {HeaderTitle} from "../atoms/header-title";
 import {Navbar} from "../organisms/navbar";
+import {media} from "../../shared/media/media";
 
 
 export const HeaderStl = styled.div`
@@ -13,6 +14,10 @@ export const HeaderStl = styled.div`
   height: 70px;
   border-bottom: ${({main}) => main ? colors.primary : colors.secondary} 1px solid;
   padding: 0 20px;
+  
+  @media(${media.isDesktop}) {
+    justify-content: ${({main}) => main ? 'flex-end' : 'flex-start'};
+  }
 `
 
 

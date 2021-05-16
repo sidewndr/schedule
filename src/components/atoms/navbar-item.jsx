@@ -16,7 +16,6 @@ const NavbarItemStl = styled.div`
   text-transform: uppercase;
   user-select: none;
   
-  
   &:hover{
     background-color: ${colors.secondary};
     color: ${colors.primary};

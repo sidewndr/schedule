@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import BtnMenuOpen from '../../attachments/img/btn-menu-open.svg'
 import BtnMenuClose from '../../attachments/img/btn-menu-close.svg'
+import {media} from "../../shared/media/media";
 
 const BtnMenuStl = styled.div`
   display: flex;
@@ -14,6 +15,10 @@ const BtnMenuStl = styled.div`
   
   &:hover{
     cursor: pointer;
+  }
+  
+  @media(${media.isDesktop}) {
+    display: none;
   }
 `
 

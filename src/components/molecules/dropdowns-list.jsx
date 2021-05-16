@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import {Dropdown, DropdownStl} from "../atoms/dropdown";
-import {getCourses} from "../../api/getData/getCourses";
-import {getGroups} from "../../api/getData/getGroups";
+import {getCourses, getGroups} from "../../tests/mocks/mock";
+import {media} from "../../shared/media/media";
 
 
 const DropdownsListStl = styled.div`
@@ -17,6 +17,10 @@ const DropdownsListStl = styled.div`
 
   ${DropdownStl}:nth-child(2){
     margin-bottom: 70px;
+  }
+  
+  @media(${media.isDesktop}) {
+    
   }
 `
 
@@ -48,7 +52,6 @@ export const DropdownsList = () => {
   return (
     <DropdownsListStl>
       <Dropdown
-        mobile
         defaultValue={'КУРС'}
         data={getCourses()}
         onChangeValue={handleChangeValueCourse}
@@ -57,18 +60,17 @@ export const DropdownsList = () => {
       {
         course === ''
           ? <Dropdown
-              mobile
               isHidden
+              defaultValue={'ГРУППА'}
             />
           : <Dropdown
-              mobile
               defaultValue={'ГРУППА'}
               data={getGroups(course)}
               onChangeValue={handleChangeValueGroup}
             />
       }
 
-      <Dropdown mobile defaultValue={'ПРЕПОДАВАТЕЛЬ'} />
+      <Dropdown defaultValue={'ПРЕПОДАВАТЕЛЬ'} />
     </DropdownsListStl>
   )
 }
