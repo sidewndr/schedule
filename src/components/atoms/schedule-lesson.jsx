@@ -78,11 +78,12 @@ const TeacherStl = styled.div`
 `
 
 
-export const ScheduleLesson = ({serialNumber = 1,
-                                 lessonName = 'Оченб длинное название предмета аж в три строки вау пиздец',
-                                 classroomNumber = 321,
-                                 teacherName = 'Прыжков Е. Е.',
-                                 ...lessonTime}) => {
+export const ScheduleLesson = ({serialNumber,
+                                lessonName,
+                                classroomNumber,
+                                teacherName,
+                                timeFrom,
+                                timeTo}) => {
 
   return (
     <ScheduleLessonStl>
@@ -90,7 +91,7 @@ export const ScheduleLesson = ({serialNumber = 1,
         <ColumnStl left />
         <ColumnStl center >
           <LessonTimeStl>
-            {lessonTime.from = '10:00'} - {lessonTime.to = '11:40'}
+            {timeFrom} - {timeTo}
           </LessonTimeStl>
         </ColumnStl>
         <ColumnStl right />

@@ -22,9 +22,9 @@ export const ScheduleCard = ({day = 'Понедельник',
                               date = '01.01'}) => {
   return (
     <ScheduleCardStl>
-      <ScheduleDate day={day} date={date} />
+      <ScheduleDate day={} date={} />
 
-      <ScheduleLesson />
+      <ScheduleLesson  />
       <ScheduleLesson />
       <ScheduleLesson />
       <ScheduleLesson />
