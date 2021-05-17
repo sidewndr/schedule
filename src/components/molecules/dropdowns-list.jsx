@@ -19,8 +19,8 @@ const DropdownsListStl = styled.div`
     margin-bottom: 70px;
   }
   
-  @media(${media.isDesktop}) {
-    
+  @media ${media.isDesktop} {
+    margin-right: 240px;
   }
 `
 

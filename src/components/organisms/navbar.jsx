@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Media from "react-media";
 import {colors} from "../../shared/global-styles/colors";
 import {Header} from "../molecules/header";
 import {NavbarDate} from "../atoms/navbar-date";
@@ -10,7 +9,7 @@ import {media} from "../../shared/media/media";
 
 
 const NavbarStl = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 2;
   top: 0;
   left: 0;
@@ -21,8 +20,7 @@ const NavbarStl = styled.div`
   background-color: ${colors.primary};
   box-shadow: 1px 0 4px 0 rgba(0, 0, 0, 0.4);
   
-  @media(${media.isDesktop}) {
-    position: fixed;
+  @media ${media.isDesktop} {
     box-shadow: none;
   }
 `
@@ -36,6 +34,10 @@ const BackgroundStl = styled.div`
   height: 100vh;
   background-color: black;
   opacity: 40%;
+  
+  @media ${media.isDesktop} {
+    display: none;
+  }
 `
 
 const HeaderContainerStl = styled.div`
@@ -53,54 +55,24 @@ const DateContainer = styled.div`
 
 export const Navbar = ({onClick}) => {
   return (
-    <Media queries={media}>
-      {media => (
-        <>
-          {
-            (media.isMobile || media.isTablet) && (
-              <>
-                <BackgroundStl onClick={onClick} />
+    <>
+      <BackgroundStl onClick={onClick} />
 
-                <NavbarStl>
-                  <HeaderContainerStl>
-                    <Header navbar onClick={onClick} />
-                  </HeaderContainerStl>
+      <NavbarStl>
+        <HeaderContainerStl>
+          <Header navbar onClick={onClick} />
+        </HeaderContainerStl>
 
-                  <MainContainer>
-                    <Link to={'/'} onClick={onClick}>
-                      <NavbarItem text={'Главная'} />
-                    </Link>
-                  </MainContainer>
+        <MainContainer>
+          <Link to={'/'} onClick={onClick}>
+            <NavbarItem text={'Главная'} />
+          </Link>
+        </MainContainer>
 
-                  <DateContainer>
-                    <NavbarDate />
-                  </DateContainer>
-                </NavbarStl>
-              </>
-            )
-          }
-
-          {
-            media.isDesktop && (
-              <NavbarStl>
-                <HeaderContainerStl>
-                  <Header navbar onClick={onClick} />
-                </HeaderContainerStl>
-
-                <MainContainer>
-                  <Link to={'/'} onClick={onClick}>
-                    <NavbarItem text={'Главная'} />
-                  </Link>
-                </MainContainer>
-
-                <DateContainer>
-                  <NavbarDate />
-                </DateContainer>
-              </NavbarStl>
-            )
-          }
-        </>
-      )}
-    </Media>
+        <DateContainer>
+          <NavbarDate />
+        </DateContainer>
+      </NavbarStl>
+    </>
   )
 }

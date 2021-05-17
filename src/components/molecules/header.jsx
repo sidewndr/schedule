@@ -15,7 +15,7 @@ export const HeaderStl = styled.div`
   border-bottom: ${({main}) => main ? colors.primary : colors.secondary} 1px solid;
   padding: 0 20px;
   
-  @media(${media.isDesktop}) {
+  @media ${media.isDesktop} {
     justify-content: ${({main}) => main ? 'flex-end' : 'flex-start'};
   }
 `

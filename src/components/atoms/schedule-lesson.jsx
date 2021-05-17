@@ -13,7 +13,6 @@ const ColumnStl = styled.div`
   display: flex;
   flex-direction: column;
 
-
   ${({left}) => left && css`
     flex: 0 0 13px;
     margin-right: 5px;
@@ -36,7 +35,6 @@ const ColumnStl = styled.div`
 
 const RowStl = styled.div`
   display: flex;
-  
   margin-bottom: 3px;
   
   ${({end}) => end && css`

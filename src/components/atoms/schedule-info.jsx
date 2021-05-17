@@ -5,7 +5,7 @@ import {useLocation} from 'react-router-dom'
 import {media} from "../../shared/media/media";
 
 
-const ScheduleInfoStl = styled.div`
+export const ScheduleInfoStl = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,11 +19,11 @@ const ScheduleInfoStl = styled.div`
   font-size: 18px;
   color: ${colors.secondary};
   
-  @media(${media.isTablet}) {
+  @media ${media.isTablet} {
     padding: 0 15%;
   }
 
-  @media(${media.isDesktop}) {
+  @media ${media.isDesktop} {
     padding: 0 15%;
   }
 `

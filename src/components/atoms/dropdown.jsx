@@ -24,15 +24,15 @@ export const DropdownStl = styled.div`
     visibility: hidden;
   `}
   
-  @media (${media.isMobile}) {
+  @media ${media.isMobile} {
     width: 260px;
   }
   
-  @media (${media.isTablet}) {
+  @media ${media.isTablet} {
     width: 400px;
   }
   
-  @media (${media.isDesktop}) {
+  @media ${media.isDesktop} {
     width: 500px;
   }
 `
@@ -69,13 +69,10 @@ const OptionStl = styled.option`
 export const Dropdown = ({defaultValue, data = [], onChangeValue, isHidden}) => {
   return (
     <DropdownStl isHidden={isHidden}>
-      <SelectStl
-        onChange={onChangeValue}
-      >
-        <OptionStl defaultTitle selected >
+      <SelectStl onChange={onChangeValue}>
+        <OptionStl defaultTitle selected>
           {defaultValue}
         </OptionStl>
-
         {
           data.map((item, index) => (
             <OptionStl key={index}>
@@ -83,9 +80,7 @@ export const Dropdown = ({defaultValue, data = [], onChangeValue, isHidden}) => 
             </OptionStl>
           ))
         }
-
       </SelectStl>
     </DropdownStl>
-
   )
 }

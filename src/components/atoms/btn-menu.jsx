@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import {media} from "../../shared/media/media";
 
 import BtnMenuOpen from '../../attachments/img/btn-menu-open.svg'
 import BtnMenuClose from '../../attachments/img/btn-menu-close.svg'
-import {media} from "../../shared/media/media";
 
 const BtnMenuStl = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const BtnMenuStl = styled.div`
     cursor: pointer;
   }
   
-  @media(${media.isDesktop}) {
+  @media ${media.isDesktop} {
     display: none;
   }
 `
