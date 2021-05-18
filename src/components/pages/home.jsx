@@ -11,23 +11,27 @@ const HomeStl = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
-  @media ${media.isDesktop} {
-    flex-direction: row;
-  }
 `
 
 const HeaderContainerStl = styled.div`
   margin-bottom: 70px;
   
   @media ${media.isDesktop} {
-    //width: 240px;
-    margin-bottom: 150px;
+    margin-bottom: 130px;
+    
+    //position: sticky;
+    //top: 0;
+    //z-index: 2;
   }
 `
 
 const MainContainerStl = styled.div`
   margin-bottom: auto;
+
+  @media ${media.isDesktop} {
+    //position: relative;
+    //z-index: 1;
+  }
 `
 
 const FooterContainerStl = styled.div``
@@ -35,7 +39,16 @@ const FooterContainerStl = styled.div``
 const ColumnStl = styled.div`
   display: flex;
   flex-direction: column;
-  flex: ${({navbar, main}) => navbar ? '0 0 240px' : main ? '1 1 auto' : null};
+  flex: ${({navbar, main}) => (navbar && '0 0 240px') || (main && '1 1 auto')};
+  width: ${({footer}) => footer && '100%'};
+`
+
+const RowStl = styled.div`
+  display: flex;
+  flex-direction: row;
+  
+  margin-bottom: ${({main}) => main && 'auto'};
+  margin-top: ${({footer}) => footer && '20px'};
 `
 
 
@@ -77,23 +90,38 @@ export const Home = () => {
 
       <Desktop>
         <HomeStl>
-          <ColumnStl navbar>
-            <Navbar />
-          </ColumnStl>
+          <RowStl main>
+            <ColumnStl navbar>
+              <Navbar />
+            </ColumnStl>
 
-          <ColumnStl main>
-            <HeaderContainerStl>
-              <Header main />
-            </HeaderContainerStl>
+            <ColumnStl main>
+              <HeaderContainerStl>
+                <Header main />
+              </HeaderContainerStl>
 
-            <MainContainerStl>
-              <DropdownsList />
-            </MainContainerStl>
+              <MainContainerStl>
+                <DropdownsList />
+                <DropdownsList />
+                <DropdownsList />
+                <DropdownsList />
+                <DropdownsList />
+              </MainContainerStl>
+            </ColumnStl>
+          </RowStl>
 
-            <FooterContainerStl>
-              <Footer />
-            </FooterContainerStl>
-          </ColumnStl>
+          <RowStl footer>
+            <ColumnStl footer>
+              <FooterContainerStl>
+                <Footer />
+              </FooterContainerStl>
+            </ColumnStl>
+          </RowStl>
+
+
+
+
+
         </HomeStl>
       </Desktop>
     </>
