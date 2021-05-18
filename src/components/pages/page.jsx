@@ -2,12 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import {Header} from "../molecules/header";
 import {Footer} from "../molecules/footer";
-import {DropdownsList} from "../molecules/dropdowns-list";
 import {Desktop, media, Mobile, Tablet} from "../../shared/media/media";
 import {Navbar} from "../organisms/navbar";
 
 
-const HomeStl = styled.div`
+const PageStl = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -47,44 +46,47 @@ const RowStl = styled.div`
 `
 
 
-export const Home = () => {
+export const Page = (props) => {
+
+  const {children} = props
+
   return (
     <>
       <Mobile>
-        <HomeStl>
+        <PageStl>
           <HeaderContainerStl>
             <Header main />
           </HeaderContainerStl>
 
           <MainContainerStl>
-            <DropdownsList />
+            {children}
           </MainContainerStl>
 
           <FooterContainerStl>
             <Footer />
           </FooterContainerStl>
-        </HomeStl>
+        </PageStl>
       </Mobile>
 
       <Tablet>
-        <HomeStl>
+        <PageStl>
           <HeaderContainerStl>
             <Header main />
           </HeaderContainerStl>
 
           <MainContainerStl>
-            <DropdownsList />
+            {children}
           </MainContainerStl>
 
           <FooterContainerStl>
             <Footer />
           </FooterContainerStl>
-        </HomeStl>
+        </PageStl>
       </Tablet>
 
 
       <Desktop>
-        <HomeStl>
+        <PageStl>
           <RowStl main>
             <ColumnStl navbar>
               <Navbar />
@@ -96,7 +98,7 @@ export const Home = () => {
               </HeaderContainerStl>
 
               <MainContainerStl>
-                <DropdownsList />
+                {children}
               </MainContainerStl>
             </ColumnStl>
           </RowStl>
@@ -108,7 +110,7 @@ export const Home = () => {
               </FooterContainerStl>
             </ColumnStl>
           </RowStl>
-        </HomeStl>
+        </PageStl>
       </Desktop>
     </>
   )
