@@ -13,6 +13,7 @@ export const HeaderStl = styled.div`
   align-items: center;
   height: 70px;
   border-bottom: ${({main}) => main ? colors.primary : colors.secondary} 1px solid;
+  background-color: ${({main}) => main && colors.secondary };
   padding: 0 20px;
   
   @media ${media.isDesktop} {

@@ -6,12 +6,10 @@ import {Routes} from "./api/routes/routes";
 
 
 const app = (
-  // <ContextProvider>
   <>
     <GlobalStyles />
     <Routes />
   </>
-  // </ContextProvider>
 )
 
 ReactDOM.render(app, document.getElementById('root'))

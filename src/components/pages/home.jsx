@@ -14,27 +14,23 @@ const HomeStl = styled.div`
 `
 
 const HeaderContainerStl = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 1;
   margin-bottom: 70px;
   
   @media ${media.isDesktop} {
     margin-bottom: 130px;
-    
-    //position: sticky;
-    //top: 0;
-    //z-index: 2;
   }
 `
 
 const MainContainerStl = styled.div`
   margin-bottom: auto;
-
-  @media ${media.isDesktop} {
-    //position: relative;
-    //z-index: 1;
-  }
 `
 
-const FooterContainerStl = styled.div``
+const FooterContainerStl = styled.div`
+  margin-top: 20px;
+`
 
 const ColumnStl = styled.div`
   display: flex;
@@ -48,7 +44,6 @@ const RowStl = styled.div`
   flex-direction: row;
   
   margin-bottom: ${({main}) => main && 'auto'};
-  margin-top: ${({footer}) => footer && '20px'};
 `
 
 
@@ -102,26 +97,17 @@ export const Home = () => {
 
               <MainContainerStl>
                 <DropdownsList />
-                <DropdownsList />
-                <DropdownsList />
-                <DropdownsList />
-                <DropdownsList />
               </MainContainerStl>
             </ColumnStl>
           </RowStl>
 
-          <RowStl footer>
+          <RowStl>
             <ColumnStl footer>
               <FooterContainerStl>
                 <Footer />
               </FooterContainerStl>
             </ColumnStl>
           </RowStl>
-
-
-
-
-
         </HomeStl>
       </Desktop>
     </>
