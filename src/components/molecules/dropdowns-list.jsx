@@ -59,10 +59,7 @@ export const DropdownsList = () => {
 
       {
         course === ''
-          ? <Dropdown
-              isHidden
-              defaultValue={'ГРУППА'}
-            />
+          ? <Dropdown isHidden />
           : <Dropdown
               defaultValue={'ГРУППА'}
               data={getGroups(course)}

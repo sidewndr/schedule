@@ -16,8 +16,7 @@ const HeaderTitleStl = styled.div`
     color: ${colors.primary};
 
     @media ${media.isMobile} {
-      max-width: 280px;
-      width: auto;
+      width: 175px;
     }
   `}
   
@@ -25,6 +24,10 @@ const HeaderTitleStl = styled.div`
     text-align: left;
     color: ${colors.secondary};
   `}
+
+  @media ${media.isTablet} {
+    font-size: 28px;
+  }
   
   @media ${media.isDesktop} {
     font-size: 30px;
@@ -34,16 +37,18 @@ const HeaderTitleStl = styled.div`
 
 export const HeaderTitle = ({main, navbar}) => {
   return (
-    main ?
+    main && (
       <HeaderTitleStl main>
         Учебное расписание
       </HeaderTitleStl>
-    :
-    navbar ?
+    )
+
+    ||
+
+    navbar && (
       <HeaderTitleStl navbar>
         КЕКТиС
       </HeaderTitleStl>
-    :
-    undefined
+    )
   )
 }

@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
+import {media} from "../../shared/media/media";
 import {BtnMenu} from "../atoms/btn-menu";
 import {HeaderTitle} from "../atoms/header-title";
 import {Navbar} from "../organisms/navbar";
-import {media} from "../../shared/media/media";
 
 
 export const HeaderStl = styled.div`
@@ -30,27 +30,26 @@ export const Header = ({main, navbar, onClick}) => {
   }
 
   return (
-      main ?
-        <>
-          <HeaderStl main>
-            <BtnMenu open onClick={navbarToggle} />
-            <HeaderTitle main />
-          </HeaderStl>
-          {
-            navbarOpen
-              ? <Navbar onClick={navbarToggle} />
-              : null
-          }
-        </>
-
-      :
-      navbar ?
-        <HeaderStl>
-          <HeaderTitle navbar />
-          <BtnMenu close onClick={onClick} />
+    main && (
+      <>
+        <HeaderStl main>
+          <BtnMenu open onClick={navbarToggle} />
+          <HeaderTitle main />
         </HeaderStl>
 
-      :
-        undefined
+        {
+          navbarOpen && <Navbar onClick={navbarToggle} />
+        }
+      </>
+    )
+
+    ||
+
+    navbar && (
+      <HeaderStl>
+        <HeaderTitle navbar />
+        <BtnMenu close onClick={onClick} />
+      </HeaderStl>
+    )
   )
 }

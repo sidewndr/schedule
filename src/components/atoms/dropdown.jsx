@@ -9,6 +9,7 @@ import BtnSelectImg from '../../attachments/img/btn-select.svg'
 export const DropdownStl = styled.div`
   display: inline-block;
   position: relative;
+  width: 260px;
 
   &::after{
     content: url(${BtnSelectImg});
@@ -23,10 +24,6 @@ export const DropdownStl = styled.div`
   ${({isHidden}) => isHidden && css`
     visibility: hidden;
   `}
-  
-  @media ${media.isMobile} {
-    width: 260px;
-  }
   
   @media ${media.isTablet} {
     width: 400px;
