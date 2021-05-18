@@ -4,6 +4,7 @@ import {Header} from "../molecules/header";
 import {Footer} from "../molecules/footer";
 import {Desktop, media, Mobile, Tablet} from "../../shared/media/media";
 import {Navbar} from "../organisms/navbar";
+import {DropdownsListStl} from "../molecules/dropdowns-list";
 
 
 const PageStl = styled.div`
@@ -16,14 +17,24 @@ const HeaderContainerStl = styled.div`
   position: sticky;
   top: 0;
   z-index: 1;
-  margin-bottom: 70px;
-  
-  @media ${media.isDesktop} {
-    margin-bottom: 130px;
-  }
+
 `
 
 const MainContainerStl = styled.div`
+  //Main page content margins:
+  ${DropdownsListStl} {
+    margin-top: 70px;
+
+    @media ${media.isDesktop} {
+      margin-top: 130px;
+    }
+  }
+  //
+  
+  //Schedule page content margins:
+  //TODO: доделать
+  //
+
   margin-bottom: auto;
 `
 
