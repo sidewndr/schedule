@@ -47,7 +47,7 @@ export const HeaderTitle = ({main, navbar}) => {
 
     navbar && (
       <HeaderTitleStl navbar>
-        КЕКТиС
+        КИТиС (?)
       </HeaderTitleStl>
     )
   )
