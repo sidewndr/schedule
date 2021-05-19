@@ -6,8 +6,7 @@ export const date = {
       ? '0' + currentDate.getDate()
       : currentDate.getDate()
     )
-  }
-  ,
+  },
 
   getMonth: (currentDate = new Date()) => (
     currentDate.getMonth() < 10
@@ -22,5 +21,9 @@ export const date = {
   getDay: (currentDate = new Date()) => {
     const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота']
     return days[currentDate.getDay()]
+  },
+
+  getAllDays: () => {
+    return ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
   }
 }
