@@ -2,39 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 import {useLocation} from 'react-router-dom'
-import {media} from "../../shared/media/media";
 
 
 export const ScheduleInfoStl = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 30px;
-  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  place-items: center;
+  height: 40px;
   border-radius: 5px;
   background-color: ${colors.primary};
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   color: ${colors.secondary};
-  
-  @media ${media.isTablet} {
-    padding: 0 15%;
-  }
-
-  @media ${media.isDesktop} {
-    padding: 0 15%;
-  }
 `
 
 const CourseStl = styled.div`
-  text-align: left;
+  width: 100%;
+  text-align: center;
   text-transform: uppercase;
 `
 
 const GroupStl = styled.div`
-  text-align: right;
+  width: 100%;
+  text-align: center;
 `
 
 

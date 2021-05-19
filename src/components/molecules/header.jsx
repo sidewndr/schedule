@@ -31,26 +31,30 @@ export const Header = ({main, navbar, onClick}) => {
   }
 
   return (
-    main && (
-      <>
-        <HeaderStl main>
-          <BtnMenu open onClick={navbarToggle} />
-          <HeaderTitle main />
-        </HeaderStl>
+    (
+      main && (
+        <>
+          <HeaderStl main>
+            <BtnMenu open onClick={navbarToggle} />
+            <HeaderTitle main />
+          </HeaderStl>
 
-        {
-          navbarOpen && <Navbar onClick={navbarToggle} />
-        }
-      </>
+          {
+            navbarOpen && <Navbar onClick={navbarToggle} />
+          }
+        </>
+      )
     )
 
     ||
 
-    navbar && (
-      <HeaderStl>
-        <HeaderTitle navbar />
-        <BtnMenu close onClick={onClick} />
-      </HeaderStl>
+    (
+      navbar && (
+        <HeaderStl>
+          <HeaderTitle navbar />
+          <BtnMenu close onClick={onClick} />
+        </HeaderStl>
+      )
     )
   )
 }

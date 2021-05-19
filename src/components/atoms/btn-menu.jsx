@@ -29,18 +29,22 @@ const ImgStl = styled.img`
 
 export const BtnMenu = ({open, close, onClick}) => {
   return (
-    open && (
-      <BtnMenuStl onClick={onClick}>
-        <ImgStl src={BtnMenuOpen} />
-      </BtnMenuStl>
+    (
+      open && (
+        <BtnMenuStl onClick={onClick}>
+          <ImgStl src={BtnMenuOpen} />
+        </BtnMenuStl>
+      )
     )
 
     ||
 
-    close && (
-      <BtnMenuStl onClick={onClick}>
-        <ImgStl src={BtnMenuClose} />
-      </BtnMenuStl>
+    (
+      close && (
+        <BtnMenuStl onClick={onClick}>
+          <ImgStl src={BtnMenuClose} />
+        </BtnMenuStl>
+      )
     )
   )
 }

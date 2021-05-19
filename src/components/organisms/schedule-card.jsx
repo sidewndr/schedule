@@ -1,35 +1,50 @@
 import React from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
-import {ScheduleDate, ScheduleDateStl} from "../atoms/schedule-date";
-import {ScheduleLesson} from "../atoms/schedule-lesson";
+import {ScheduleDay, ScheduleDayStl} from "../atoms/schedule-day";
+import {RowStl, ScheduleLesson, ScheduleLessonStl} from "../atoms/schedule-lesson";
 
 
 const ScheduleCardStl = styled.div`
   display: flex;
   flex-direction: column;
-  width: 280px;
-  padding: 10px 15px;
-  border: ${colors.primary} 0.5px solid;
+  width: 100%;
+  border: ${colors.primary} 1px solid;
   
-  ${ScheduleDateStl} {
+  ${ScheduleDayStl} {
     margin-bottom: 15px;
+  }
+  
+  ${ScheduleLessonStl}:not(:last-child) {
+    margin-bottom: 6px;
+  }
+
+  ${ScheduleLessonStl}:last-child ${RowStl}:nth-child(3) {
+    margin-bottom: 0;
+  }
+
+  ${ScheduleLessonStl}:last-child ${RowStl}:last-child {
+    display: none;
   }
 `
 
+const ScheduleLessonListStl = styled.div`
+  padding: 0 15px 10px 15px ;
 
-export const ScheduleCard = ({day = 'Понедельник',
-                              date = '01.01'}) => {
+`
+
+
+export const ScheduleCard = ({cardDay = 'Понедельник'}) => {
   return (
     <ScheduleCardStl>
-      <ScheduleDate day={day} date={date} />
+      <ScheduleDay day={cardDay} />
 
-      <ScheduleLesson />
-      <ScheduleLesson />
-      <ScheduleLesson />
-      <ScheduleLesson />
-      <ScheduleLesson />
-      <ScheduleLesson />
+      <ScheduleLessonListStl>
+        <ScheduleLesson />
+        <ScheduleLesson />
+        <ScheduleLesson />
+        <ScheduleLesson />
+      </ScheduleLessonListStl>
     </ScheduleCardStl>
   )
 }

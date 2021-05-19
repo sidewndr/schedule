@@ -37,18 +37,22 @@ const HeaderTitleStl = styled.div`
 
 export const HeaderTitle = ({main, navbar}) => {
   return (
-    main && (
-      <HeaderTitleStl main>
-        Учебное расписание
-      </HeaderTitleStl>
+    (
+      main && (
+        <HeaderTitleStl main>
+          Учебное расписание
+        </HeaderTitleStl>
+      )
     )
 
     ||
 
-    navbar && (
-      <HeaderTitleStl navbar>
-        КИТиС (?)
-      </HeaderTitleStl>
+    (
+      navbar && (
+        <HeaderTitleStl navbar>
+          КИТиС (?)
+        </HeaderTitleStl>
+      )
     )
   )
 }

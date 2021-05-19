@@ -5,6 +5,8 @@ import {Footer} from "../molecules/footer";
 import {Desktop, media, Mobile, Tablet} from "../../shared/media/media";
 import {Navbar} from "../organisms/navbar";
 import {DropdownsListStl} from "../molecules/dropdowns-list";
+import {ScheduleInfoStl} from "../atoms/schedule-info";
+import {ScheduleCardListStl} from "../molecules/schedule-card-list";
 
 
 const PageStl = styled.div`
@@ -17,10 +19,12 @@ const HeaderContainerStl = styled.div`
   position: sticky;
   top: 0;
   z-index: 1;
-
 `
 
 const MainContainerStl = styled.div`
+  padding: 0 20px;
+  margin-bottom: auto;
+
   //Main page content margins:
   ${DropdownsListStl} {
     margin-top: 70px;
@@ -29,13 +33,15 @@ const MainContainerStl = styled.div`
       margin-top: 130px;
     }
   }
-  //
   
   //Schedule page content margins:
-  //TODO: доделать
-  //
+  ${ScheduleInfoStl} {
+    margin-top: 20px;
+  }
 
-  margin-bottom: auto;
+  ${ScheduleCardListStl} {
+    margin-top: 20px;
+  }
 `
 
 const FooterContainerStl = styled.div`
@@ -52,7 +58,6 @@ const ColumnStl = styled.div`
 const RowStl = styled.div`
   display: flex;
   flex-direction: row;
-  
   margin-bottom: ${({main}) => main && 'auto'};
 `
 
