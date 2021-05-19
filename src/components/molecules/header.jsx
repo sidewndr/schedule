@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
+import {media} from "../../shared/media/media";
 import {BtnMenu} from "../atoms/btn-menu";
 import {HeaderTitle} from "../atoms/header-title";
 import {Navbar} from "../organisms/navbar";
-import {media} from "../../shared/media/media";
 
 
 export const HeaderStl = styled.div`
@@ -13,6 +13,7 @@ export const HeaderStl = styled.div`
   align-items: center;
   height: 70px;
   border-bottom: ${({main}) => main ? colors.primary : colors.secondary} 1px solid;
+  background-color: ${({main}) => main && colors.secondary };
   padding: 0 20px;
   
   @media ${media.isDesktop} {
@@ -30,27 +31,30 @@ export const Header = ({main, navbar, onClick}) => {
   }
 
   return (
-      main ?
+    (
+      main && (
         <>
           <HeaderStl main>
             <BtnMenu open onClick={navbarToggle} />
             <HeaderTitle main />
           </HeaderStl>
+
           {
-            navbarOpen
-              ? <Navbar onClick={navbarToggle} />
-              : null
+            navbarOpen && <Navbar onClick={navbarToggle} />
           }
         </>
+      )
+    )
 
-      :
-      navbar ?
+    ||
+
+    (
+      navbar && (
         <HeaderStl>
           <HeaderTitle navbar />
           <BtnMenu close onClick={onClick} />
         </HeaderStl>
-
-      :
-        undefined
+      )
+    )
   )
 }

@@ -1,19 +1,24 @@
-import React from 'react'
 import {BrowserRouter, Route} from "react-router-dom";
-import {Home} from "../../components/pages/home";
-import {Schedule} from "../../components/pages/schedule";
+import {Page} from "../../components/pages/page";
+import {DropdownsList} from "../../components/molecules/dropdowns-list";
+import {ScheduleCardList} from "../../components/molecules/schedule-card-list";
+import {ScheduleInfo} from "../../components/atoms/schedule-info";
 
 
 export const Routes = () => {
   return (
     <BrowserRouter>
-      <Route exact path={'/'}>
-        <Home />
-      </Route>
+      <Page>
+        <Route exact path={'/'}>
+          <DropdownsList />
+        </Route>
 
-      <Route exact path={'/schedule'}>
-        <Schedule />
-      </Route>
+        <Route exact path={'/schedule'}>
+          <ScheduleInfo />
+          <ScheduleCardList />
+        </Route>
+      </Page>
     </BrowserRouter>
+
   )
 }

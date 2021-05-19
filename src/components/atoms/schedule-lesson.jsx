@@ -2,10 +2,9 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 
-const ScheduleLessonStl = styled.div`
+export const ScheduleLessonStl = styled.div`
   display: flex;
   flex-direction: column;
-  width: 89.2857%;
   font-family: 'Inter', sans-serif;
 `
 
@@ -19,71 +18,79 @@ const ColumnStl = styled.div`
   `}
 
   ${({center}) => center && css`
-    flex: 1 1 187px;
+    flex: 1 1 auto;
     margin-right: 20px;
-    
-    ${({end}) => end && css`
-      margin-right: 0;
-      border-bottom: ${colors.tertiary} 0.5px solid;
-    `}
   `}
 
   ${({right}) => right && css`
     flex: 0 0 25px;
   `}
+
+  ${({last}) => last && css`
+    width: 100%;
+    height: 1px;
+  `}
 `
 
-const RowStl = styled.div`
+export const RowStl = styled.div`
   display: flex;
   margin-bottom: 3px;
   
-  ${({end}) => end && css`
+  ${({last}) => last && css`
     margin-bottom: 0;
   `}
 `
 
 const SerialNumberStl = styled.div`
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   color: ${colors.primary};
 `
 
 const LessonTimeStl = styled.div`
   font-weight: 300;
-  font-size: 10px;
+  font-size: 12px;
   text-align: left;
   color: ${colors.tertiary};
 `
 
 const LessonNameStl = styled.div`
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   text-align: justify;
   color: ${colors.primary};
 `
 
 const ClassroomNumberStl = styled.div`
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
   text-align: right;
   color: ${colors.primary};
 `
 
 const TeacherStl = styled.div`
   font-weight: 300;
-  font-size: 10px;
+  font-size: 12px;
   text-align: left;
   color: ${colors.tertiary};
 `
 
+const HrStl = styled.hr`
+  width: 100%;
+  margin: 0;
+  border: none;
+  background-color: ${colors.tertiary};
+  height: 50%;
+`
 
-export const ScheduleLesson = ({serialNumber,
-                                lessonName,
-                                classroomNumber,
-                                teacherName,
-                                timeFrom,
-                                timeTo}) => {
+
+export const ScheduleLesson = ({serialNumber = 1,
+                               lessonName = 'Название дисциплины',
+                               classroomNumber = 123,
+                               teacherName = 'Преподаватель А. Б.',
+                               timeFrom = '10:00',
+                               timeTo = '11:40'}) => {
 
   return (
     <ScheduleLessonStl>
@@ -125,9 +132,10 @@ export const ScheduleLesson = ({serialNumber,
         <ColumnStl right />
       </RowStl>
 
-      <RowStl end>
-        <ColumnStl left />
-        <ColumnStl center end />
+      <RowStl last>
+        <ColumnStl last>
+          <HrStl />
+        </ColumnStl>
       </RowStl>
     </ScheduleLessonStl>
   )

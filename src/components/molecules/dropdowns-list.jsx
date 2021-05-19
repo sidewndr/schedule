@@ -6,7 +6,7 @@ import {getCourses, getGroups} from "../../tests/mocks/mock";
 import {media} from "../../shared/media/media";
 
 
-const DropdownsListStl = styled.div`
+export const DropdownsListStl = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,10 +59,7 @@ export const DropdownsList = () => {
 
       {
         course === ''
-          ? <Dropdown
-              isHidden
-              defaultValue={'ГРУППА'}
-            />
+          ? <Dropdown isHidden />
           : <Dropdown
               defaultValue={'ГРУППА'}
               data={getGroups(course)}
