@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {useFetch} from "../../api/db/useFetch";
 import {colors} from "../../shared/global-styles/colors";
+import {Loader} from "../atoms/loader";
 
 
 const RowStl = styled.div`
@@ -13,9 +14,7 @@ const RowStl = styled.div`
   
 `
 
-const CallScheduleStl = styled.div`
-  margin-top: 50px;
-  
+export const CallScheduleStl = styled.div`
   display: flex;
   flex-direction: column;
   font-family: 'Inter', sans-serif;
@@ -48,7 +47,7 @@ export const CallSchedule = ({}) => {
   const query = '/data/callSchedule?sortBy=%60lessonNumber%60%20asc'
   const [loading, data, error] = useFetch(query)
 
-  if (loading) return 'Загрузка...'
+  if (!loading) return <Loader />
 
   if (error) {
     console.log(error)
@@ -57,19 +56,21 @@ export const CallSchedule = ({}) => {
 
   return (
     <CallScheduleStl>
-      {
-        data && data.map((item) => (
-          <RowStl key={item.objectId}>
-            <LessonStl>
-              {`Занятие ${item.lessonNumber}:`}
-            </LessonStl>
+      {/*{*/}
+      {/*  data && data.map((item) => (*/}
+      {/*    <RowStl key={item.objectId}>*/}
+      {/*      <LessonStl>*/}
+      {/*        {`Занятие ${item.lessonNumber}:`}*/}
+      {/*      </LessonStl>*/}
 
-            <TimeStl>
-              {`${item.timeFrom} - ${item.timeTo}`}
-            </TimeStl>
-          </RowStl>
-        ))
-      }
+      {/*      <TimeStl>*/}
+      {/*        {`${item.timeFrom} - ${item.timeTo}`}*/}
+      {/*      </TimeStl>*/}
+      {/*    </RowStl>*/}
+      {/*  ))*/}
+      {/*}*/}
+
+      {/*<Loader />*/}
     </CallScheduleStl>
   )
 }

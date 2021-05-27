@@ -1,29 +1,36 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
-import {useFetch} from "../api/db/useFetch";
 
-
-const TestStl = styled.div`
-  
+const Kvadratik = styled.div`
+  width: 400px;
+  height: 200px;
+  background-color: black;
+  position: absolute;
+  right: -300px;
+  transition: 1s;
+  &.open {
+    transform: translateX(-50%);
+  }
 `
-
 
 export const Test = () => {
 
-  const [loading, data, error] = useFetch('/data/scheduleTimes')
+  const [open, setOpen] = useState(false)
 
-  if (loading) return 'Загрузка...'
-
-  if (error) {
-    console.log(error)
-    return 'Произошла ошибка. Попробуйте позже.'
+  const handleClick = () => {
+    setOpen(!open)
   }
 
   return (
-    <TestStl>
-      {
-        (data && data[0].time_from)
-      }
-    </TestStl>
+    <>
+      <Kvadratik className={open ? 'open' : null} />
+      <button
+        onClick={handleClick}
+        style={{
+          width: '30px',
+          height: '20px'
+        }}
+      />
+    </>
   )
 }

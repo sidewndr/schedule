@@ -4,7 +4,7 @@ import {DropdownsList} from "../../components/molecules/dropdowns-list";
 import {ScheduleCardList} from "../../components/molecules/schedule-card-list";
 import {ScheduleInfo} from "../../components/atoms/schedule-info";
 import {Test} from "../../components/test";
-import {CallSchedule} from "../../components/atoms/call-schedule";
+import {CallSchedule} from "../../components/molecules/call-schedule";
 
 
 export const Routes = () => {
@@ -29,6 +29,7 @@ export const Routes = () => {
         <Route exact path={'/test'}>
           <Test />
         </Route>
+
       </Page>
     </BrowserRouter>
 

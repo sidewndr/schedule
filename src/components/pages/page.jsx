@@ -7,6 +7,8 @@ import {Navbar} from "../organisms/navbar";
 import {DropdownsListStl} from "../molecules/dropdowns-list";
 import {ScheduleInfoStl} from "../atoms/schedule-info";
 import {ScheduleCardListStl} from "../molecules/schedule-card-list";
+import {CallScheduleStl} from "../molecules/call-schedule";
+import {LoaderStl} from "../atoms/loader";
 
 
 const PageStl = styled.div`
@@ -22,10 +24,20 @@ const HeaderContainerStl = styled.div`
 `
 
 const MainContainerStl = styled.div`
-  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 70px - 60px);
+  padding: 0 20px 20px;
   margin-bottom: auto;
+  
+  //Loader:
+  ${LoaderStl} {
+    margin: auto 0;
+    align-self: center;
+  }
 
-  //Main page content margins:
+  //Main page contents:
   ${DropdownsListStl} {
     margin-top: 70px;
 
@@ -34,7 +46,7 @@ const MainContainerStl = styled.div`
     }
   }
   
-  //Schedule page content margins:
+  //Schedule page contents:
   ${ScheduleInfoStl} {
     margin-top: 20px;
   }
@@ -42,11 +54,14 @@ const MainContainerStl = styled.div`
   ${ScheduleCardListStl} {
     margin-top: 20px;
   }
+
+  //CallSchedule page contents:
+  ${CallScheduleStl} {
+    margin-top: 50px;
+  }
 `
 
-const FooterContainerStl = styled.div`
-  margin-top: 20px;
-`
+const FooterContainerStl = styled.div``
 
 const ColumnStl = styled.div`
   display: flex;

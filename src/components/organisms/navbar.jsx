@@ -53,7 +53,10 @@ const MainContainer = styled.div`
 `
 
 const DateContainer = styled.div`
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid ${colors.secondary};
+  border-top: 1px solid ${colors.secondary};
+  padding: 20px 0 20px 0;
 `
 
 
@@ -69,11 +72,11 @@ export const Navbar = ({onClick}) => {
 
         <MainContainer>
           <Link to={'/'} onClick={onClick}>
-            <NavbarItem text={'Учебное расписание'} />
+            <NavbarItem text={'Расписание'} />
           </Link>
 
           <Link to={'/call-schedule'} onClick={onClick}>
-            <NavbarItem text={'Расписание звонков'} />
+            <NavbarItem text={'Звонки'} />
           </Link>
         </MainContainer>
 

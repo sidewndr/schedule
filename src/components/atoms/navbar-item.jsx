@@ -10,7 +10,7 @@ const NavbarItemStl = styled.div`
   font-weight: 400;
   font-size: 22px;
   cursor: pointer;
-  padding: 3px 0 3px 20px;
+  padding: 10px 0 10px 20px;
   color: ${colors.secondary};
   text-transform: uppercase;
   user-select: none;
