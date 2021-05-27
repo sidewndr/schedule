@@ -6,12 +6,11 @@ import {colors} from "../../shared/global-styles/colors";
 const NavbarItemStl = styled.div`
   display: flex;
   align-items: center;
-  height: 40px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 22px;
   cursor: pointer;
-  padding-left: 20px;
+  padding: 3px 0 3px 20px;
   color: ${colors.secondary};
   text-transform: uppercase;
   user-select: none;

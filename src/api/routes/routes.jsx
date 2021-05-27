@@ -3,6 +3,8 @@ import {Page} from "../../components/pages/page";
 import {DropdownsList} from "../../components/molecules/dropdowns-list";
 import {ScheduleCardList} from "../../components/molecules/schedule-card-list";
 import {ScheduleInfo} from "../../components/atoms/schedule-info";
+import {Test} from "../../components/test";
+import {CallSchedule} from "../../components/atoms/call-schedule";
 
 
 export const Routes = () => {
@@ -16,6 +18,16 @@ export const Routes = () => {
         <Route exact path={'/schedule'}>
           <ScheduleInfo />
           <ScheduleCardList />
+        </Route>
+
+        <Route exact path={'/call-schedule'}>
+          <CallSchedule />
+        </Route>
+
+
+        {/*//TEST*/}
+        <Route exact path={'/test'}>
+          <Test />
         </Route>
       </Page>
     </BrowserRouter>
