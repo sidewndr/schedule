@@ -1,15 +1,16 @@
 import {keyframes} from "styled-components";
 
 
-const animName = keyframes`
-    from{
-      transform: rotate(0deg);
-    }
-    to{
-      transform: rotate(180deg);
-    }
+const loading = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 `
 
+
 export const animations = {
-  animName,
+  loading,
 }
