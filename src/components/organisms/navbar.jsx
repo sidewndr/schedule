@@ -5,7 +5,7 @@ import {media} from "../../shared/media/media";
 import {Header} from "../molecules/header";
 import {NavbarDate} from "../atoms/navbar-date";
 import {NavbarItem} from "../atoms/navbar-item";
-import {Link} from "../atoms/link";
+import {Link, LinkStl} from "../atoms/link";
 
 
 const NavbarStl = styled.div`
@@ -46,6 +46,10 @@ const HeaderContainerStl = styled.div`
 
 const MainContainer = styled.div`
   margin-bottom: auto;
+
+  ${LinkStl}:not(:last-child) {
+    margin-bottom: 5px;
+  }
 `
 
 const DateContainer = styled.div`
@@ -65,7 +69,11 @@ export const Navbar = ({onClick}) => {
 
         <MainContainer>
           <Link to={'/'} onClick={onClick}>
-            <NavbarItem text={'Главная'} />
+            <NavbarItem text={'Учебное расписание'} />
+          </Link>
+
+          <Link to={'/call-schedule'} onClick={onClick}>
+            <NavbarItem text={'Расписание звонков'} />
           </Link>
         </MainContainer>
 
