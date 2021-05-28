@@ -2,10 +2,13 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 import {media} from "../../shared/media/media";
+import {LinkStl} from "./link";
 
 
 const HeaderTitleStl = styled.div`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  height: 100%;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 24px;
@@ -34,13 +37,21 @@ const HeaderTitleStl = styled.div`
   }
 `
 
+const LinkStyled = styled(LinkStl)`
+  display: flex;
+  align-items: center;
+  height: 100%;
+`
+
 
 export const HeaderTitle = ({main, navbar}) => {
   return (
     (
       main && (
         <HeaderTitleStl main>
-          Учебное расписание
+          <LinkStyled to={'/'}>
+            Учебное расписание
+          </LinkStyled>
         </HeaderTitleStl>
       )
     )

@@ -5,6 +5,7 @@ import {ScheduleCardList} from "../../components/molecules/schedule-card-list";
 import {ScheduleInfo} from "../../components/atoms/schedule-info";
 import {Test} from "../../components/test";
 import {CallSchedule} from "../../components/molecules/call-schedule";
+import {Schedule} from "../../components/organisms/schedule";
 
 
 export const Routes = () => {
@@ -16,8 +17,7 @@ export const Routes = () => {
         </Route>
 
         <Route exact path={'/schedule'}>
-          <ScheduleInfo />
-          <ScheduleCardList />
+          <Schedule />
         </Route>
 
         <Route exact path={'/call-schedule'}>

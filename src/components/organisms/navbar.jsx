@@ -46,7 +46,7 @@ const HeaderContainerStl = styled.div`
 
 const MainContainer = styled.div`
   margin-bottom: auto;
-
+  
   ${LinkStl}:not(:last-child) {
     margin-bottom: 5px;
   }

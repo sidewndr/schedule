@@ -25,7 +25,6 @@ const HeaderContainerStl = styled.div`
 
 const MainContainerStl = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   min-height: calc(100vh - 70px - 60px);
   padding: 0 20px 20px;
@@ -33,26 +32,16 @@ const MainContainerStl = styled.div`
   
   //Loader:
   ${LoaderStl} {
-    margin: auto 0;
     align-self: center;
   }
 
   //Main page contents:
   ${DropdownsListStl} {
-    margin-top: 70px;
+    margin-top: 80px;
 
     @media ${media.isDesktop} {
-      margin-top: 130px;
+      margin-top: 100px;
     }
-  }
-  
-  //Schedule page contents:
-  ${ScheduleInfoStl} {
-    margin-top: 20px;
-  }
-
-  ${ScheduleCardListStl} {
-    margin-top: 20px;
   }
 
   //CallSchedule page contents:

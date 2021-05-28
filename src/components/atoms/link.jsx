@@ -6,6 +6,7 @@ export const LinkStl = styled(NavLink)`
   display: block;
   text-decoration: none;
   cursor: pointer;
+  color: inherit;
 `
 
 
