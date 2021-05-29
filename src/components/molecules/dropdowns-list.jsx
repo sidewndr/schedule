@@ -9,7 +9,6 @@ import {media} from "../../shared/media/media";
 export const DropdownsListStl = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   
   ${DropdownStl}:nth-child(1){
     margin-bottom: 25px;

@@ -38,10 +38,6 @@ const MainContainerStl = styled.div`
   //Main page contents:
   ${DropdownsListStl} {
     margin-top: 80px;
-
-    @media ${media.isDesktop} {
-      margin-top: 100px;
-    }
   }
 
   //CallSchedule page contents:
