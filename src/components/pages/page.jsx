@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Header} from "../molecules/header";
-import {Footer} from "../molecules/footer";
-import {Desktop, media, Mobile, Tablet} from "../../shared/media/media";
+import {Header} from "../organisms/header";
+import {Footer} from "../organisms/footer";
+import {Desktop, Mobile, Tablet} from "../../shared/media/media";
 import {Navbar} from "../organisms/navbar";
 import {DropdownsListStl} from "../molecules/dropdowns-list";
-import {ScheduleInfoStl} from "../atoms/schedule-info";
-import {ScheduleCardListStl} from "../molecules/schedule-card-list";
 import {CallScheduleStl} from "../molecules/call-schedule";
 import {LoaderStl} from "../atoms/loader";
 

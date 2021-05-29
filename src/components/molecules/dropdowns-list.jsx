@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
 import {Dropdown, DropdownStl} from "../atoms/dropdown";
 import {getCourses, getGroups} from "../../tests/mocks/mock";
-import {media} from "../../shared/media/media";
 
 
 export const DropdownsListStl = styled.div`
@@ -16,10 +15,6 @@ export const DropdownsListStl = styled.div`
 
   ${DropdownStl}:nth-child(2){
     margin-bottom: 70px;
-  }
-  
-  @media ${media.isDesktop} {
-    margin-right: 240px;
   }
 `
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 import {media} from "../../shared/media/media";
-import {Header} from "../molecules/header";
+import {Header} from "./header";
 import {NavbarDate} from "../atoms/navbar-date";
 import {NavbarItem} from "../atoms/navbar-item";
 import {Link, LinkStl} from "../atoms/link";

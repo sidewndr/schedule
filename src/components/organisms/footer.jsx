@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
-import {FooterDescription} from "../atoms/footer-description";
+import {SocialList} from "../molecules/social-list";
+import {media} from "../../shared/media/media";
 
 
 const FooterStl = styled.div`
@@ -11,13 +12,17 @@ const FooterStl = styled.div`
   height: 60px;
   background-color: ${colors.primary};
   padding: 0 20px;
+  
+  @media ${media.isDesktop} {
+    padding: 0 20px 0 260px;
+  }
 `
 
 
 export const Footer = () => {
   return (
     <FooterStl>
-      <FooterDescription text={'2021'} />
+      <SocialList />
     </FooterStl>
   )
 }

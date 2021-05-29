@@ -50,7 +50,7 @@ export const HeaderTitle = ({main, navbar}) => {
       main && (
         <HeaderTitleStl main>
           <LinkStyled to={'/'}>
-            Учебное расписание
+            {`Учебное расписание`}
           </LinkStyled>
         </HeaderTitleStl>
       )
@@ -61,7 +61,7 @@ export const HeaderTitle = ({main, navbar}) => {
     (
       navbar && (
         <HeaderTitleStl navbar>
-          КИТиС (?)
+          {`КРФиАУ`}
         </HeaderTitleStl>
       )
     )

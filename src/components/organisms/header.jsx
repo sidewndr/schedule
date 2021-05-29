@@ -4,7 +4,7 @@ import {colors} from "../../shared/global-styles/colors";
 import {media} from "../../shared/media/media";
 import {BtnMenu} from "../atoms/btn-menu";
 import {HeaderTitle} from "../atoms/header-title";
-import {Navbar} from "../organisms/navbar";
+import {Navbar} from "./navbar";
 
 
 export const HeaderStl = styled.div`
