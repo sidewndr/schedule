@@ -78,6 +78,10 @@ export const Navbar = ({onClick}) => {
           <Link to={'/call-schedule'} onClick={onClick}>
             <NavbarItem text={'Звонки'} />
           </Link>
+
+          <Link to={'/'} onClick={onClick}>
+            <NavbarItem text={'Вернуться'} />
+          </Link>
         </MainContainer>
 
         <DateContainer>

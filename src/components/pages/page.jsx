@@ -7,6 +7,7 @@ import {Navbar} from "../organisms/navbar";
 import {DropdownsListStl} from "../molecules/dropdowns-list";
 import {CallScheduleStl} from "../molecules/call-schedule";
 import {LoaderStl} from "../atoms/loader";
+import {ErrorStl} from "../atoms/error";
 
 
 const PageStl = styled.div`
@@ -28,19 +29,19 @@ const MainContainerStl = styled.div`
   padding: 0 20px 20px;
   margin-bottom: auto;
   
-  //Loader:
-  ${LoaderStl} {
+  //Loader, Error:
+  ${LoaderStl}, ${ErrorStl} {
     align-self: center;
   }
 
   //Main page contents:
   ${DropdownsListStl} {
-    margin-top: 80px;
+    margin-top: 120px;
   }
 
   //CallSchedule page contents:
   ${CallScheduleStl} {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 `
 

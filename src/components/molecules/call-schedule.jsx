@@ -3,43 +3,33 @@ import styled from 'styled-components'
 import {useFetch} from "../../api/db/useFetch";
 import {colors} from "../../shared/global-styles/colors";
 import {Loader} from "../atoms/loader";
+import {Error} from "../atoms/error";
 
 
 const RowStl = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  background-color: #ccc;
-  
+  border: ${colors.primary} 1px solid;
+  padding: 5px;
 `
 
 export const CallScheduleStl = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 500px;
   font-family: 'Inter', sans-serif;
   font-size: 22px;
-  border: ${colors.primary} 1px solid;
-  padding: ;
   
   ${RowStl}:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 `
 
-const LessonStl = styled.div`
-  //display: flex;
-  //justify-content: center;
-  //width: 45%;
-  background-color: aqua;
-`
+const LessonStl = styled.div``
 
-const TimeStl = styled.div`
-  //display: flex;
-  //justify-content: center;
-  background-color: blueviolet;
-  //width: 55%;
-`
+const TimeStl = styled.div``
 
 
 export const CallSchedule = ({}) => {
@@ -47,30 +37,28 @@ export const CallSchedule = ({}) => {
   const query = '/data/callSchedule?sortBy=%60lessonNumber%60%20asc'
   const [loading, data, error] = useFetch(query)
 
-  if (!loading) return <Loader />
+  if (loading) return <Loader />
 
   if (error) {
     console.log(error)
-    return 'Произошла ошибка. Попробуйте позже.'
+    return <Error />
   }
 
   return (
     <CallScheduleStl>
-      {/*{*/}
-      {/*  data && data.map((item) => (*/}
-      {/*    <RowStl key={item.objectId}>*/}
-      {/*      <LessonStl>*/}
-      {/*        {`Занятие ${item.lessonNumber}:`}*/}
-      {/*      </LessonStl>*/}
+      {
+        data && data.map((item) => (
+          <RowStl key={item.objectId}>
+            <LessonStl>
+              {`Занятие ${item.lessonNumber}:`}
+            </LessonStl>
 
-      {/*      <TimeStl>*/}
-      {/*        {`${item.timeFrom} - ${item.timeTo}`}*/}
-      {/*      </TimeStl>*/}
-      {/*    </RowStl>*/}
-      {/*  ))*/}
-      {/*}*/}
-
-      {/*<Loader />*/}
+            <TimeStl>
+              {`${item.timeFrom} - ${item.timeTo}`}
+            </TimeStl>
+          </RowStl>
+        ))
+      }
     </CallScheduleStl>
   )
 }
