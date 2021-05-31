@@ -8,6 +8,7 @@ import {DropdownsListStl} from "../molecules/dropdowns-list";
 import {CallScheduleStl} from "../molecules/call-schedule";
 import {LoaderStl} from "../atoms/loader";
 import {ErrorStl} from "../atoms/error";
+import {AuthStl} from "../organisms/auth";
 
 
 const PageStl = styled.div`
@@ -42,6 +43,11 @@ const MainContainerStl = styled.div`
   //CallSchedule page contents:
   ${CallScheduleStl} {
     margin-top: 40px;
+  }
+
+  //Auth page contents:
+  ${AuthStl} {
+    margin-top: 120px;
   }
 `
 

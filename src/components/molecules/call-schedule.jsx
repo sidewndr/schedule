@@ -32,7 +32,7 @@ const LessonStl = styled.div``
 const TimeStl = styled.div``
 
 
-export const CallSchedule = ({}) => {
+export const CallSchedule = () => {
 
   const query = '/data/callSchedule?sortBy=%60lessonNumber%60%20asc'
   const [loading, data, error] = useFetch(query)

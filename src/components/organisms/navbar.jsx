@@ -50,6 +50,15 @@ const MainContainer = styled.div`
   ${LinkStl}:not(:last-child) {
     margin-bottom: 5px;
   }
+
+  ${LinkStl}:nth-child(2) {
+    margin-bottom: 160px;
+  }
+`
+
+const ReturnLinkStl = styled.a`
+  display: flex;
+  text-decoration: none;
 `
 
 const DateContainer = styled.div`
@@ -71,17 +80,21 @@ export const Navbar = ({onClick}) => {
         </HeaderContainerStl>
 
         <MainContainer>
-          <Link to={'/'} onClick={onClick}>
+          <Link to={'/'} onClick={onClick} >
             <NavbarItem text={'Расписание'} />
           </Link>
 
-          <Link to={'/call-schedule'} onClick={onClick}>
+          <Link to={'/call-schedule'} onClick={onClick} >
             <NavbarItem text={'Звонки'} />
           </Link>
 
-          <Link to={'/'} onClick={onClick}>
-            <NavbarItem text={'Вернуться'} />
+          <Link to={'/auth'} onClick={onClick} >
+            <NavbarItem center text={'Авторизация'} />
           </Link>
+
+          <ReturnLinkStl href={'http://kitis.ru/'} >
+            <NavbarItem center text={'Выход'} />
+          </ReturnLinkStl>
         </MainContainer>
 
         <DateContainer>

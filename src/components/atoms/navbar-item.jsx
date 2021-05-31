@@ -1,17 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
-import {media} from "../../shared/media/media";
 
 
-const NavbarItemStl = styled.div`
+export const NavbarItemStl = styled.div`
   display: flex;
+  flex-basis: 100%;
   align-items: center;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 22px;
   cursor: pointer;
-  padding: 10px 0 10px 20px;
+  padding: 10px 20px;
   border-left: ${colors.primary} 1px solid;
   border-right: ${colors.primary} 1px solid;
   color: ${colors.secondary};
@@ -23,12 +23,16 @@ const NavbarItemStl = styled.div`
     background-color: ${colors.secondary};
     color: ${colors.primary};
   }
+  
+  ${({center}) => center && css`
+    justify-content: center;
+  `}
 `
 
 
-export const NavbarItem = ({text}) => {
+export const NavbarItem = ({text, center, onClick}) => {
   return (
-    <NavbarItemStl>
+    <NavbarItemStl center={center} onClick={onClick}>
       {text}
     </NavbarItemStl>
   )

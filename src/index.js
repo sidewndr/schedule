@@ -10,8 +10,6 @@ const app = (
     <GlobalStyles />
     <Routes />
   </>
-
-
 )
 
 ReactDOM.render(app, document.getElementById('root'))

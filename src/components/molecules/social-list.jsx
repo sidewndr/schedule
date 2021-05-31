@@ -34,14 +34,17 @@ export const SocialList = () => {
 
   const icons = [
     {
+      id: 0,
       icon: vkIcon,
       url: 'https://vk.com/sidewndr'
     },
     {
+      id: 1,
       icon: telegramIcon,
       url: 'https://t.me/gtfoal'
     },
     {
+      id: 2,
       icon: gitIcon,
       url: 'https://github.com/sidewndr'
     }
@@ -52,6 +55,7 @@ export const SocialList = () => {
       {
         icons.map((item) => (
           <SocialLink
+            key={item.id}
             src={item.icon}
             to={item.url}
           />
