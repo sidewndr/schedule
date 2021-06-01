@@ -4,8 +4,11 @@ import {Label, LabelStl} from "../atoms/label";
 import {Input, InputStl} from "../atoms/input";
 import {Btn} from "../atoms/btn";
 import {useFetch} from "../../api/db/useFetch";
+import {colors} from "../../shared/global-styles/colors";
+import {useHistory} from "react-router-dom";
 
 export const AuthStl = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,43 +26,79 @@ export const AuthStl = styled.div`
   }
 `
 
+const ErrorAuthStl = styled.div`
+  position: absolute;
+  top: -60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  max-width: 500px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: ${colors.secondary};
+  background-color: ${colors.primary};
+  padding: 3px 10px;
+`
+
 
 export const Auth = () => {
-
-  const [auth, setAuth] = useState(false)
 
   const query = '/data/members?property=login&property=password'
   const data = useFetch(query)[1]
 
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+  const [errorAuth, setErrorAuth] = useState(false)
+
+  let history = useHistory()
 
   const handleAuthClick = () => {
-    data.forEach((item) => (
-      (item.login === login && item.password === password)
-        ? setAuth(true)
-        : null
-    ))
+    data.forEach((item) => {
+      if (item.login === login && item.password === password) {
+        localStorage.setItem('isAuth', 'true')
+        setErrorAuth(false)
+
+        history.push('/edit')
+      } else {
+        setErrorAuth(true)
+        setLogin('')
+        setPassword('')
+      }
+    })
   }
+
+  console.log(localStorage.getItem('isAuth'));
 
   return (
     <AuthStl>
-      {
-        auth
-          ? <div style={{color: 'green'}}>ВОШЕЛ!</div>
-          : <div style={{color: 'red'}}>НЕ ВОШЕЛ!</div>
-      }
-
       <Label text={'Логин:'} />
       <Input
         type={'text'}
-        onChange={(e) => setLogin(e.target.value)}
+        value={login}
+        onChange={(e) => {
+          setLogin(e.target.value)
+          if (errorAuth === true) setErrorAuth(false)
+        }}
       />
       <Label text={'Пароль:'} />
       <Input
         type={'password'}
-        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+        onChange={(e) => {
+          setPassword(e.target.value)
+          if (errorAuth === true) setErrorAuth(false)
+        }}
       />
+
+      {
+        errorAuth
+          ? <ErrorAuthStl>
+              Ошибка авторизации!
+            </ErrorAuthStl>
+          : null
+      }
 
       <Btn
         text={'Войти'}

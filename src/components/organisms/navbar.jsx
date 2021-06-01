@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 import {media} from "../../shared/media/media";
@@ -70,6 +70,15 @@ const DateContainer = styled.div`
 
 
 export const Navbar = ({onClick}) => {
+
+  const [isAuth, setIsAuth] = useState(() => localStorage.getItem('isAuth'))
+
+  // console.log(isAuth)
+  //
+  // useEffect(() => {
+  //   localStorage.setItem('', '')
+  // }, [isAuth])
+
   return (
     <>
       <BackgroundStl onClick={onClick} />
@@ -88,9 +97,16 @@ export const Navbar = ({onClick}) => {
             <NavbarItem text={'Звонки'} />
           </Link>
 
-          <Link to={'/auth'} onClick={onClick} >
-            <NavbarItem center text={'Авторизация'} />
-          </Link>
+          {
+            isAuth
+              ? <Link to={'/edit'} onClick={onClick} >
+                <NavbarItem center text={'Редактировать'} />
+              </Link>
+              : <Link to={'/auth'} onClick={onClick} >
+                <NavbarItem center text={'Авторизация'} />
+              </Link>
+          }
+
 
           <ReturnLinkStl href={'http://kitis.ru/'} >
             <NavbarItem center text={'Выход'} />

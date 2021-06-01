@@ -27,6 +27,10 @@ export const Routes = () => {
           <Auth />
         </Route>
 
+        <Route exact path={'/edit'}>
+
+        </Route>
+
 
         {/*//TEST*/}
         <Route exact path={'/test'}>

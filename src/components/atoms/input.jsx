@@ -15,10 +15,11 @@ export const InputStl = styled.input`
 `
 
 
-export const Input = ({type, onChange}) => {
+export const Input = ({type, onChange, value}) => {
   return (
     <InputStl
       type={type}
+      value={value}
       onChange={onChange}
     />
   )
