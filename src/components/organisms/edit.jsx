@@ -32,7 +32,7 @@ export const Edit = ({}) => {
 
   const [dropdownValue, setDropdownValue] = useState(null)
 
-  const queryCallSchedule = '/data/callSchedule?sortBy=%60lessonNumber%60%20asc'
+  const queryCallSchedule = '/data/callSchedule?where=lessonNumber%3E%3D1&property=lessonNumber&property=timeFrom&property=timeTo&sortBy=%60lessonNumber%60%20asc'
   const [loadingCallSchedule, dataCallSchedule, errorCallSchedule] = useFetch(queryCallSchedule)
 
   if (loadingCallSchedule) return <Loader />
