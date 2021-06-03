@@ -5,10 +5,11 @@ import {Footer} from "../organisms/footer";
 import {Desktop, Mobile, Tablet} from "../../shared/media/media";
 import {Navbar} from "../organisms/navbar";
 import {DropdownsListStl} from "../molecules/dropdowns-list";
-import {CallScheduleStl} from "../molecules/call-schedule";
+import {CallScheduleStl} from "../organisms/call-schedule";
 import {LoaderStl} from "../atoms/loader";
 import {ErrorStl} from "../atoms/error";
 import {AuthStl} from "../organisms/auth";
+import {EditStl} from "../organisms/edit";
 
 
 const PageStl = styled.div`
@@ -48,6 +49,11 @@ const MainContainerStl = styled.div`
   //Auth page contents:
   ${AuthStl} {
     margin-top: 120px;
+  }
+
+  //Edit page contents:
+  ${EditStl} {
+    margin-top: 40px;
   }
 `
 

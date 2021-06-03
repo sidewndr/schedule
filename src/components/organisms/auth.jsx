@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import styled from 'styled-components'
 import {Label, LabelStl} from "../atoms/label";
 import {Input, InputStl} from "../atoms/input";
 import {Btn} from "../atoms/btn";
-import {useFetch} from "../../api/db/useFetch";
+import {useFetch} from "../../api/hooks/useFetch";
 import {colors} from "../../shared/global-styles/colors";
 import {useHistory} from "react-router-dom";
+import {AuthContext} from "../../context";
+// import {useAuth} from "../../api/hooks/useLocalStorage";
 
 export const AuthStl = styled.div`
   position: relative;
@@ -44,12 +46,13 @@ const ErrorAuthStl = styled.div`
 
 
 export const Auth = () => {
-
   const query = '/data/members?property=login&property=password'
   const data = useFetch(query)[1]
 
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+
+  const {setIsAuth} = useContext(AuthContext)
   const [errorAuth, setErrorAuth] = useState(false)
 
   let history = useHistory()
@@ -57,7 +60,7 @@ export const Auth = () => {
   const handleAuthClick = () => {
     data.forEach((item) => {
       if (item.login === login && item.password === password) {
-        localStorage.setItem('isAuth', 'true')
+        setIsAuth(true)
         setErrorAuth(false)
 
         history.push('/edit')
@@ -68,8 +71,6 @@ export const Auth = () => {
       }
     })
   }
-
-  console.log(localStorage.getItem('isAuth'));
 
   return (
     <AuthStl>

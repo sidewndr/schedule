@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 import {media} from "../../shared/media/media";
@@ -6,6 +6,7 @@ import {Header} from "./header";
 import {NavbarDate} from "../atoms/navbar-date";
 import {NavbarItem} from "../atoms/navbar-item";
 import {Link, LinkStl} from "../atoms/link";
+import {AuthContext} from "../../context";
 
 
 const NavbarStl = styled.div`
@@ -71,13 +72,7 @@ const DateContainer = styled.div`
 
 export const Navbar = ({onClick}) => {
 
-  const [isAuth, setIsAuth] = useState(() => localStorage.getItem('isAuth'))
-
-  // console.log(isAuth)
-  //
-  // useEffect(() => {
-  //   localStorage.setItem('', '')
-  // }, [isAuth])
+  const {isAuth} = useContext(AuthContext)
 
   return (
     <>
@@ -100,11 +95,11 @@ export const Navbar = ({onClick}) => {
           {
             isAuth
               ? <Link to={'/edit'} onClick={onClick} >
-                <NavbarItem center text={'Редактировать'} />
-              </Link>
+                  <NavbarItem center text={'Редактировать'} />
+                </Link>
               : <Link to={'/auth'} onClick={onClick} >
-                <NavbarItem center text={'Авторизация'} />
-              </Link>
+                  <NavbarItem center text={'Авторизация'} />
+                </Link>
           }
 
 

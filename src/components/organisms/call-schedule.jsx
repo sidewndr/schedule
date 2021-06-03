@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {useFetch} from "../../api/db/useFetch";
+import {useFetch} from "../../api/hooks/useFetch";
 import {colors} from "../../shared/global-styles/colors";
 import {Loader} from "../atoms/loader";
 import {Error} from "../atoms/error";

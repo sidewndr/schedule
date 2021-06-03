@@ -1,42 +1,53 @@
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Redirect, Switch} from "react-router-dom";
 import {Page} from "../../components/pages/page";
 import {DropdownsList} from "../../components/molecules/dropdowns-list";
-import {Test} from "../../components/test";
-import {CallSchedule} from "../../components/molecules/call-schedule";
+import {CallSchedule} from "../../components/organisms/call-schedule";
 import {Schedule} from "../../components/organisms/schedule";
 import {Auth} from "../../components/organisms/auth";
+import {useContext} from "react";
+import {AuthContext} from "../../context";
+import {Edit} from "../../components/organisms/edit";
 
 
 export const Routes = () => {
+
+  const {isAuth} = useContext(AuthContext)
+
   return (
     <BrowserRouter>
       <Page>
-        <Route exact path={'/'}>
-          <DropdownsList />
-        </Route>
+        <Switch>
+          <Route exact path={'/'}>
+            <DropdownsList />
+          </Route>
 
-        <Route exact path={'/schedule'}>
-          <Schedule />
-        </Route>
+          <Route exact path={'/schedule'}>
+            <Schedule />
+          </Route>
 
-        <Route exact path={'/call-schedule'}>
-          <CallSchedule />
-        </Route>
+          <Route exact path={'/call-schedule'}>
+            <CallSchedule />
+          </Route>
 
-        <Route exact path={'/auth'}>
-          <Auth />
-        </Route>
+          {/*{*/}
+          {/*  isAuth*/}
+          {/*    ? <Route exact path={'/edit'}>*/}
+          {/*           <Edit />*/}
+          {/*      </Route>*/}
+          {/*    */}
+          {/*    : <Route exact path={'/auth'}>*/}
+          {/*        <Auth />*/}
+          {/*      </Route>*/}
+          {/*}*/}
+          <Route exact path={'/auth'}>
+            <Auth />
+          </Route>
+          <Route exact path={'/edit'}>
+            <Edit />
+          </Route>
 
-        <Route exact path={'/edit'}>
-
-        </Route>
-
-
-        {/*//TEST*/}
-        <Route exact path={'/test'}>
-          <Test />
-        </Route>
-
+          <Redirect to={'/'} />
+        </Switch>
       </Page>
     </BrowserRouter>
 

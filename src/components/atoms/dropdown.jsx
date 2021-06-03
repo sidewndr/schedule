@@ -10,6 +10,7 @@ export const DropdownStl = styled.div`
   display: inline-block;
   position: relative;
   width: 260px;
+  height: 30px;
 
   &::after{
     content: url(${BtnSelectImg});
@@ -63,10 +64,10 @@ const OptionStl = styled.option`
 `
 
 
-export const Dropdown = ({defaultValue, data = [], onChangeValue, isHidden}) => {
+export const Dropdown = ({defaultValue, data = [], onChangeValue, selectedValue ,isHidden}) => {
   return (
     <DropdownStl isHidden={isHidden}>
-      <SelectStl onChange={onChangeValue}>
+      <SelectStl onChange={onChangeValue} value={selectedValue}>
         <OptionStl defaultTitle selected>
           {defaultValue}
         </OptionStl>

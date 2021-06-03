@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 
 export const InputStl = styled.input`
@@ -12,15 +12,23 @@ export const InputStl = styled.input`
   padding: 3px 10px;
   border: ${colors.primary} 1px solid;
   outline: none;
+  
+  ${({edit}) => edit && css`
+    width: 150px;
+    max-width: none;
+    font-size: inherit;
+    text-align: center;
+  `}
 `
 
 
-export const Input = ({type, onChange, value}) => {
+export const Input = ({type, onChange, value, edit}) => {
   return (
     <InputStl
       type={type}
       value={value}
       onChange={onChange}
+      edit={edit}
     />
   )
 }

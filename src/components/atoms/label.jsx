@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 
 export const LabelStl = styled.div`
@@ -10,12 +10,18 @@ export const LabelStl = styled.div`
   font-size: 22px;
   text-transform: uppercase;
   color: ${colors.primary};
+  
+  ${({edit}) => edit && css`
+    width: auto;
+    font-size: inherit;
+    text-transform: none;
+  `}
 `
 
 
-export const Label = ({text}) => {
+export const Label = ({text, edit}) => {
   return (
-    <LabelStl>
+    <LabelStl edit={edit}>
       {text}
     </LabelStl>
   )
