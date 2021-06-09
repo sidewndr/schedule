@@ -64,7 +64,7 @@ const OptionStl = styled.option`
 `
 
 
-export const Dropdown = ({defaultValue, data = [], onChangeValue, selectedValue ,isHidden}) => {
+export const Dropdown = ({defaultValue, data = [], onChangeValue, selectedValue, isHidden}) => {
   return (
     <DropdownStl isHidden={isHidden}>
       <SelectStl onChange={onChangeValue} value={selectedValue}>

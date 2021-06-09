@@ -34,7 +34,7 @@ const TimeStl = styled.div``
 
 export const CallSchedule = () => {
 
-  const query = '/data/callSchedule?sortBy=%60lessonNumber%60%20asc'
+  const query = '/data/callSchedule?pageSize=100&sortBy=%60lessonNumber%60%20asc'
   const [loading, data, error] = useFetch(query)
 
   if (loading) return <Loader />

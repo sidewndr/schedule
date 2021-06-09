@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
-import {useLocation} from 'react-router-dom'
 
 
 export const ScheduleInfoStl = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: ${({columns}) => columns ? '100%' : '50% 50%'};
   place-items: center;
   height: 40px;
   border-radius: 5px;
@@ -28,28 +27,37 @@ const GroupStl = styled.div`
   text-align: center;
 `
 
+const TeacherStl = styled.div`
+  place-self: center;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+`
 
-export const ScheduleInfo = () => {
 
-  let location = useLocation()
-
-  const data = location.search
-    .replace('?', '')
-    .replace(/[+]/g, ' ')
-    .split('&');
-
-  const getCourseFromUrl = decodeURI(data[0].replace('course=', ''))
-  const getGroupFromUrl = decodeURI(data[1].replace('group=', ''))
-
+export const ScheduleInfo = ({course, group, teacher}) => {
   return (
-    <ScheduleInfoStl>
-      <CourseStl>
-        {getCourseFromUrl} курс
-      </CourseStl>
+    <ScheduleInfoStl columns={teacher}>
+      {
+        course && group &&
+        <CourseStl>
+          {course} курс
+        </CourseStl>
+      }
 
-      <GroupStl>
-        {getGroupFromUrl}
-      </GroupStl>
+      {
+        course && group &&
+        <GroupStl>
+          {group}
+        </GroupStl>
+      }
+
+      {
+        teacher &&
+        <TeacherStl>
+          {teacher}
+        </TeacherStl>
+      }
     </ScheduleInfoStl>
   )
 }

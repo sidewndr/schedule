@@ -26,5 +26,5 @@ export const useFetch = (query) => {
     fetchData()
   }, [])
 
-  return [loading, data, error]
+  return [loading, data, error, fetchData]
 }

@@ -29,22 +29,16 @@ export const Routes = () => {
             <CallSchedule />
           </Route>
 
-          {/*{*/}
-          {/*  isAuth*/}
-          {/*    ? <Route exact path={'/edit'}>*/}
-          {/*           <Edit />*/}
-          {/*      </Route>*/}
-          {/*    */}
-          {/*    : <Route exact path={'/auth'}>*/}
-          {/*        <Auth />*/}
-          {/*      </Route>*/}
-          {/*}*/}
-          <Route exact path={'/auth'}>
-            <Auth />
-          </Route>
-          <Route exact path={'/edit'}>
-            <Edit />
-          </Route>
+          {
+            isAuth
+              ? <Route exact path={'/edit'}>
+                     <Edit />
+                </Route>
+
+              : <Route exact path={'/auth'}>
+                  <Auth />
+                </Route>
+          }
 
           <Redirect to={'/'} />
         </Switch>

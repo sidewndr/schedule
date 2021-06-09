@@ -10,6 +10,7 @@ export const ScheduleLessonStl = styled.div`
 
 const ColumnStl = styled.div`
   display: flex;
+  min-width: 15px;
   flex-direction: column;
 
   ${({left}) => left && css`
@@ -70,6 +71,7 @@ const ClassroomNumberStl = styled.div`
 `
 
 const TeacherStl = styled.div`
+  min-height: 15px;
   font-weight: 300;
   font-size: 12px;
   text-align: left;
@@ -85,12 +87,12 @@ const HrStl = styled.hr`
 `
 
 
-export const ScheduleLesson = ({serialNumber = 1,
-                               lessonName = 'Название дисциплины',
-                               classroomNumber = 123,
-                               teacherName = 'Преподаватель А. Б.',
-                               timeFrom = '10:00',
-                               timeTo = '11:40'}) => {
+export const ScheduleLesson = ({lessonNumber,
+                               lesson,
+                               classroom,
+                               teacher,
+                               timeFrom,
+                               timeTo}) => {
 
   return (
     <ScheduleLessonStl>
@@ -107,17 +109,17 @@ export const ScheduleLesson = ({serialNumber = 1,
       <RowStl>
         <ColumnStl left>
           <SerialNumberStl>
-            {serialNumber}.
+            {lessonNumber}.
           </SerialNumberStl>
         </ColumnStl>
         <ColumnStl center>
           <LessonNameStl>
-            {lessonName}
+            {lesson}
           </LessonNameStl>
         </ColumnStl>
         <ColumnStl right>
           <ClassroomNumberStl>
-            {classroomNumber}
+            {classroom}
           </ClassroomNumberStl>
         </ColumnStl>
       </RowStl>
@@ -126,7 +128,7 @@ export const ScheduleLesson = ({serialNumber = 1,
         <ColumnStl left />
         <ColumnStl center>
           <TeacherStl>
-            {teacherName}
+            {teacher}
           </TeacherStl>
         </ColumnStl>
         <ColumnStl right />

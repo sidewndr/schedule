@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
+import {media} from "../../shared/media/media";
 
 export const InputStl = styled.input`
   width: 80vw;
@@ -14,10 +15,18 @@ export const InputStl = styled.input`
   outline: none;
   
   ${({edit}) => edit && css`
-    width: 150px;
+    width: 50%;
     max-width: none;
     font-size: inherit;
     text-align: center;
+    
+    @media ${media.isTablet} {
+      width: 60%;
+    }
+    
+    @media ${media.isDesktop} {
+      width: 70%;
+    }
   `}
 `
 

@@ -46,7 +46,7 @@ const ErrorAuthStl = styled.div`
 
 
 export const Auth = () => {
-  const query = '/data/members?property=login&property=password'
+  const query = '/data/members?pageSize=100&property=login&property=password'
   const data = useFetch(query)[1]
 
   const [login, setLogin] = useState('')

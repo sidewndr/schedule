@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 import {ScheduleDay, ScheduleDayStl} from "../atoms/schedule-day";
@@ -30,20 +30,77 @@ const ScheduleCardStl = styled.div`
 
 const ScheduleLessonListStl = styled.div`
   padding: 0 15px 10px 15px ;
-
 `
 
 
-export const ScheduleCard = ({cardDay = 'Понедельник'}) => {
+export const ScheduleCard = ({dataSchedule, dataCallSchedule, day, group, teacher}) => {
+
+  const dataAll = []
+  const dataObject = [{
+    lesson: {lesson: '—'},
+    group: {group: ''},
+    teacher: {
+      name: '',
+      classroom: ''
+    }
+  }]
+
+  dataSchedule.sort((a, b) => (a.lessonNumber.lessonNumber) > (b.lessonNumber.lessonNumber) ? 1 : -1)
+
+  dataCallSchedule.forEach((item) => {
+    const arr = dataSchedule.filter((el) => el.lessonNumber.lessonNumber === item.lessonNumber)
+
+    if (arr.length === 0) {
+      dataAll.push({
+        ...dataObject,
+        ...item
+      })
+    } else {
+      dataAll.push({
+        ...arr,
+        ...item
+      })
+    }
+  })
+
+  useEffect(() => {
+    console.log(dataAll)
+  }, [dataAll])
+
   return (
     <ScheduleCardStl>
-      <ScheduleDay day={cardDay} />
+      <ScheduleDay day={day} />
 
       <ScheduleLessonListStl>
-        <ScheduleLesson />
-        <ScheduleLesson />
-        <ScheduleLesson />
-        <ScheduleLesson />
+        {
+          group &&
+          dataAll.map((item, index) => (
+            <ScheduleLesson
+              key={index}
+              lessonNumber={item.lessonNumber}
+              timeFrom={item.timeFrom}
+              timeTo={item.timeTo}
+              lesson={item[0].lesson.lesson}
+              teacher={item[0].teacher.name}
+              classroom={item[0].teacher.classroom}
+            />
+          ))
+        }
+
+        {
+          teacher &&
+          dataAll.map((item, index) => (
+            <ScheduleLesson
+              key={index}
+              lessonNumber={item.lessonNumber}
+              timeFrom={item.timeFrom}
+              timeTo={item.timeTo}
+              lesson={item[0].lesson.lesson}
+              teacher={item[0].group.group}
+              classroom={item[0].teacher.classroom}
+            />
+          ))
+        }
       </ScheduleLessonListStl>
     </ScheduleCardStl>
   )

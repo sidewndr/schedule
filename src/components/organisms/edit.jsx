@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import {Dropdown, DropdownStl} from "../atoms/dropdown";
-import {EditCallSchedule} from "../molecules/edit-call-schedule";
-import {media} from "../../shared/media/media";
-import {useFetch} from "../../api/hooks/useFetch";
-import {Loader} from "../atoms/loader";
-import {Error} from "../atoms/error";
+import {EditCallSchedule} from "./edit-call-schedule";
+import {EditGroups} from "./edit-groups";
+import {EditTeachers} from "./edit-teachers";
+import {EditLessons} from "./edit-lessons";
+import {EditSchedule} from "./edit-schedule";
 
 
 export const EditStl = styled.div`
@@ -14,63 +14,61 @@ export const EditStl = styled.div`
   align-items: center;
   width: 100%;
   
-  ${DropdownStl} {
+  & > ${DropdownStl} {
     margin-bottom: 20px;
-  }
-
-  @media ${media.isTablet} {
-    width: 400px;
-  }
-
-  @media ${media.isDesktop} {
-    width: 600px;
   }
 `
 
 
-export const Edit = ({}) => {
+export const Edit = () => {
 
   const [dropdownValue, setDropdownValue] = useState(null)
-
-  const queryCallSchedule = '/data/callSchedule?where=lessonNumber%3E%3D1&property=lessonNumber&property=timeFrom&property=timeTo&sortBy=%60lessonNumber%60%20asc'
-  const [loadingCallSchedule, dataCallSchedule, errorCallSchedule] = useFetch(queryCallSchedule)
-
-  if (loadingCallSchedule) return <Loader />
-
-  if (errorCallSchedule) {
-    console.log(dataCallSchedule)
-    return <Error />
-  }
 
   const editContent = () => {
     switch (dropdownValue) {
       case 'Звонки':
         return (
-          <EditCallSchedule dataCallSchedule={dataCallSchedule} />
+          <EditCallSchedule />
         )
 
-      case 'Преподы':
+      case 'Группы':
         return (
-          <div>Преподы!!!!!</div>
+          <EditGroups />
         )
 
-      case 'Распес':
+      case 'Преподаватели':
         return (
-          <div>Распес!!!!!</div>
+          <EditTeachers />
+        )
+
+      case 'Дисциплины':
+        return (
+          <EditLessons />
+        )
+
+      case 'Расписание':
+        return (
+          <EditSchedule />
         )
     }
   }
 
   const dropdownData = [
     {
-      item: 'Звонки',
+      item: 'Звонки'
     },
     {
-      item: 'Преподы',
+      item: 'Группы'
     },
     {
-      item: 'Распес',
+      item: 'Преподаватели'
     },
+    {
+      item: 'Дисциплины'
+    },
+    {
+      item: 'Расписание'
+    }
   ]
 
   return (

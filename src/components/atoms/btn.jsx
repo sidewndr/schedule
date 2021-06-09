@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {colors} from "../../shared/global-styles/colors";
 
-const BtnStl = styled.div`
+export const BtnStl = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +17,7 @@ const BtnStl = styled.div`
   padding: 10px 20px;
   border: ${colors.primary} 1px solid;
   cursor: pointer;
+  user-select: none;
   transition: .2s;
   
   &:hover{
