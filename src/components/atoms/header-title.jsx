@@ -61,7 +61,7 @@ export const HeaderTitle = ({main, navbar}) => {
     (
       navbar && (
         <HeaderTitleStl navbar>
-          {`КРФиАУ`}
+          {`КИСКиС`}
         </HeaderTitleStl>
       )
     )
