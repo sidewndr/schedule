@@ -97,9 +97,7 @@ export const Navbar = ({onClick}) => {
               ? <Link to={'/edit'} onClick={onClick} >
                   <NavbarItem center text={'Редактировать'} />
                 </Link>
-              : <Link to={'/auth'} onClick={onClick} >
-                  <NavbarItem center text={'Авторизация'} />
-                </Link>
+              : null
           }
 
 
