@@ -7,7 +7,6 @@ import {useFetch} from "../../api/hooks/useFetch";
 import {colors} from "../../shared/global-styles/colors";
 import {useHistory} from "react-router-dom";
 import {AuthContext} from "../../context";
-// import {useAuth} from "../../api/hooks/useLocalStorage";
 
 export const AuthStl = styled.div`
   position: relative;

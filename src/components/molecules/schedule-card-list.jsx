@@ -13,11 +13,11 @@ export const ScheduleCardListStl = styled.div`
   grid-gap: 20px;
   
   @media ${media.isTablet} {
-    grid-template-columns: auto auto;
+    grid-template-columns: calc(50% - 10px) calc(50% - 10px);
   }  
   
   @media ${media.isDesktop} {
-    grid-template-columns: auto auto;
+    grid-template-columns: calc(50% - 10px) calc(50% - 10px);
   }
 `
 

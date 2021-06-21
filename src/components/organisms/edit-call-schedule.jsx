@@ -79,7 +79,7 @@ export const EditCallSchedule = () => {
     timeTo: ''
   }
 
-  const url = 'https://eu-api.backendless.com/A74169E3-2A2E-4131-8306-B7B6AFC0DC53/0CA11C11-41A5-43EB-AB36-DF0C9B1C73D5/data/callSchedule'
+  const url = 'https://eu-api.backendless.com/CF3D6676-DED6-BCB3-FF00-E63D823B6300/FF4F1F5C-09BD-4689-8AF8-E827D6578DD8/data/callSchedule'
 
 
   if (loading) return <Loader />
